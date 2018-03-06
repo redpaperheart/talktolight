@@ -13,6 +13,7 @@ void ofApp::setup()
     "CONTROLS\n\n"
     "d - toggle debug \n"
     "g - toggle grid \n"
+    "j - minimize app \n"
     "f - toggle full screen \n\n"
     
     "b - normal\n"
@@ -571,6 +572,17 @@ void ofApp::drawDebug()
     ofDrawBitmapString(reportString, 50, ofGetWindowHeight() - 170);
 }
 
+void ofApp::setAppMinimized(bool val){
+	mAppMin =val;
+	if(mAppMin){
+		ofSetWindowShape(200, 200);
+		ofSetWindowPosition(10, 10);
+	}else{
+		ofSetWindowShape(W_WIDTH, W_HEIGHT);
+    ofSetWindowPosition(0, 0);
+	}
+}
+
 // Events
 //--------------------------------------------------------------
 
@@ -585,6 +597,9 @@ void ofApp::keyPressed(int key)
             break;
 		case 'g':
 			mModel->bShowGrid = !mModel->bShowGrid;
+			break;
+		case 'j':
+			setAppMinimized(!mAppMin);
 			break;
         //State Changes
         case 'b':

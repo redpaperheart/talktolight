@@ -85,6 +85,8 @@ class ofApp : public ofBaseApp{
     
     bool    mDebug = true;
     void setDebug(bool val=false);
+    bool mAppMin = false;
+    void setAppMinimized(bool val=false);
     string  mControlsString;
     Light   mLight;
 
