@@ -1,0 +1,129 @@
+# project specific
+.assistant_credentials.json
+__pycache__/
+
+#AMPM monitoring
+**/ampm/logs
+**/ampm/ampm-restart.json
+**/ampm/ampm-state.json
+
+# makefile builds
+obj/
+bin/
+
+# Some general ignore patterns
+[Bb]uild/
+*.o
+[Dd]ebug*/
+[Rr]elease*/
+DerivedData/
+*.mode*
+*.app/
+*.pyc
+.svn/
+*.log
+
+# IDE-specific ignore patterns
+
+#XCode
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+
+#XCode 4
+xcuserdata
+*.xcworkspace
+
+#Visual Studio
+*.sdf
+*.opensdf
+*.suo
+*.pdb
+*.ilk
+*.aps
+*.tlog
+ipch/
+*.VC.opendb
+*.VC.db
+
+# OS-specific ignore patterns
+
+#OSX
+.DS_Store
+*.swp
+*~.nib
+# Thumbnails
+._*
+
+#Windows
+Thumbs.db
+Desktop.ini
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+*.app
+
+
+# Windows + VS Yay #
+######################
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio 2015/2017 cache/options directory
+#of/talkToLightGraphics/talkToLightGraphics_vc2017/.vs/
+.vs/
+
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+
+# Visual Studio 2017 auto generated files
+Generated\ Files/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+#of/talkToLightGraphics/talkToLightGraphics_vc2017/.vs/talkToLightGraphics_vc2017/v15/Solution.VC.db-shm
+#of/talkToLightGraphics/talkToLightGraphics_vc2017/.vs/talkToLightGraphics_vc2017/v15/Solution.VC.db-wal
+

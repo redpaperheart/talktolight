@@ -1,0 +1,3 @@
+ofxBeat
+ofxOsc
+ofxXmlSettings

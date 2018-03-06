@@ -1,0 +1,38 @@
+{
+	"default":{
+		"persistence": {
+			"launchCommand": "../bin/talkToLightGraphics",
+			"maxMemory":0,
+			"startupTimeout":30,
+			"heartbeatTimeout":5
+			//touch
+		},
+		"permissions":{
+			 "rph": {
+				// The password for that user.
+				"password": "rph",
+
+				// If true, the user can shutdown, start, and restart the app.
+				"app": true,
+
+				// If true, the user can restart the computer.
+				"computer": true
+			}
+		},
+		"logging":{
+			"file":{
+				"enabled":true,
+				"filename":"logs/talkToLightGraphics"
+			},
+			"google":{
+				"enabled":false
+			},
+			"mail":{
+				"enabled":false
+			},
+			"loggly":{
+				"enabled":false
+			}
+		}
+	}
+}

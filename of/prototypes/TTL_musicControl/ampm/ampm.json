@@ -1,0 +1,37 @@
+{
+	"default":{
+		"persistence": {
+			"launchCommand": "../bin/TTL_musicControl.app/Contents/MacOS/TTL_musicControl",
+			"maxMemory":0,
+			"startupTimeout":30,
+			"heartbeatTimeout":5
+		},
+		"permissions":{
+			 "rph": {
+				// The password for that user.
+				"password": "rph",
+
+				// If true, the user can shutdown, start, and restart the app.
+				"app": true,
+
+				// If true, the user can restart the computer.
+				"computer": true
+			}
+		},
+		"logging":{
+			"file":{
+				"enabled":true,
+				"filename":"logs/menuApp"
+			},
+			"google":{
+				"enabled":false
+			},
+			"mail":{
+				"enabled":false
+			},
+			"loggly":{
+				"enabled":false
+			}
+		}
+	}
+}
