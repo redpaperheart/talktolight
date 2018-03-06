@@ -27,6 +27,7 @@ public:
     void setQuestionState() override;
     void setResponseState() override;
     void setNormalState() override;
+    void onAnimateInComplete(float *arg);
     
     LightCircle moon;
     LightCircle shadow;
