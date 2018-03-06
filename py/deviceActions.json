@@ -34,6 +34,7 @@
             "queryPatterns": [
               "cat mode",
               "laser mode",
+              "talk like a laser",
               "talk like a laser pointer"
               ]
             }
@@ -214,6 +215,25 @@
             "ttsPattern": "Changing to light mode"
           },
           "requiredTraits": ["lightMode"]
+        },
+        {
+        "intent": {
+          "name": "goodnightMode",
+          "trigger": {
+            "queryPatterns": [
+              "good night",
+              "night night",
+              "sweet dreams",
+              "night mode",
+              "sleep mode",
+              "night light"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to good night mode"
+          },
+          "requiredTraits": ["goodnightMode"]
         }
 	]
       }
