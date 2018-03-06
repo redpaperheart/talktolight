@@ -34,6 +34,7 @@
 #define OSC_MODE_SCANNER        "/mode/scanner"
 #define OSC_MODE_FIREFLY        "/mode/firefly"
 #define OSC_MODE_CAR            "/mode/kitt"
+#define OSC_MODE_GOODNIGHT      "/mode/goodnight"
 
 class ofApp : public ofBaseApp{
 
@@ -61,6 +62,7 @@ class ofApp : public ofBaseApp{
     
     bool debug = false;
     string assetPath = "";
+    string font = "";
     //Menu Views
     std::shared_ptr<MenuView>     lightMenu;
     std::shared_ptr<MenuView>     talkMenu;

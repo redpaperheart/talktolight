@@ -35,10 +35,7 @@
         <mode>
             <id>default</id>
             <options>
-                <option><text>default</text></option>
-                <option><text>This is the default text.</text></option>
-                <option><text lines="1">This only shows if we don't</text></option>
-                <option><text >know what the mode is</text></option>
+                <option><text>default text</text></option>
             </options>
         </mode>
         <mode>
@@ -121,14 +118,21 @@
     	<mode>
     		<id>/mode/aurora</id>
     		<options>
-                <option><text>/mode/aurora</text></option>
+                <option><text lines="1">What causes the Northern</text></option>
+                <option><text>Lights?</text></option>
+                <option><text>What is the weather today?</text></option>
+                <option><text lines="1">When is the next meteor</text></option>
+                <option><text>shower?</text></option>
     		</options>
     	</mode>
     	
     	<mode>
     		<id>/mode/spotlight</id>
     		<options>
-                <option><text>/mode/spotlight</text></option>
+                <option><text>What is love?</text></option>
+                <option><text>What is the meaning of life?</text></option>
+                <option><text>Applause.</text></option>
+                <option><text>Tell me a joke.</text></option>
     		</options>
     	</mode>
     	

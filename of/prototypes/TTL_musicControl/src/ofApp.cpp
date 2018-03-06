@@ -38,13 +38,21 @@ void ofApp::setup(){
     "i - mode FireFly \n"
     "o - mode Scanner \n"
     "p - mode Rainbow \n\n"
+    "h - mode Goodnight \n\n"
     
     "k - Question Started \n"
     "l - Response Ended \n";
 }
 
 void ofApp::loadSettings(){
-    
+    if(!ofDirectory::doesDirectoryExist("./")){
+        cout << "no data directory, creating:" << endl;
+        string path = "../data";
+        ofDirectory dir(path);
+        if(!dir.exists()){
+            dir.create(true);
+        }
+    }
     if(settings.loadFile("settings.xml")){
         //use them
     }else{
@@ -56,6 +64,7 @@ void ofApp::loadSettings(){
         settings.setValue("settings:playDuration", 3000);
         settings.setValue("settings:musicControl", false);
         settings.setValue("settings:debug", false);
+        settings.setValue("settings:font", "NotoSans-Regular.ttf");
         settings.saveFile("settings.xml");
     }
     
@@ -66,7 +75,7 @@ void ofApp::loadSettings(){
     assetPath = settings.getValue("settings:assetPath", "../../assets/");
     setDebug(settings.getValue("settings:debug", false));
     musicControl = settings.getValue("settings:musicControl", false);
-    
+    font = settings.getValue("settings:font", "NotoSans-Regular.ttf");
     if(menuText.loadFile(assetPath + "menuText.xml")){
         
     }
@@ -257,6 +266,9 @@ void ofApp::keyPressed(int key){
             break;
         case 'p':
             setMode(OSC_MODE_RAINBOW);
+            break;
+        case 'h':
+            setMode(OSC_MODE_GOODNIGHT);
             break;
         case 'a':
             setMode("default");
