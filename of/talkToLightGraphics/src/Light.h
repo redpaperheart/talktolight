@@ -18,6 +18,7 @@
 #include "LightModeRobot.h"
 #include "LightModeScanner.h"
 #include "LightModeSpotlight.h"
+#include "LightModeGoodNight.h"
 #include "LightModeEt.h"
 #include "LightModeRainbow.h"
 #include "LightModeFirefly.h"
@@ -63,6 +64,7 @@ class Light {
     std::shared_ptr<LightModeEt>        mModeET;
     std::shared_ptr<LightModeFirefly>   mModeFireFly;
     std::shared_ptr<LightModeRainbow>   mModeRainbow;
+    std::shared_ptr<LightModeGoodNight>   mModeGoodNight;
     std::shared_ptr<LightMode>          mModeCurrent;
     
     std::vector<std::shared_ptr<LightMode>> mModes;

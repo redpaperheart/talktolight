@@ -46,7 +46,8 @@ public:
         MODE_FIREFLY,
         MODE_AURORA,
         MODE_ALIEN,
-        MODE_SPACESHIP
+        MODE_SPACESHIP,
+        MODE_GOODNIGHT
     };
     
     Mode   mCurMode = MODE_IDLE;

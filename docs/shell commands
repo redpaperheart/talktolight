@@ -5,11 +5,11 @@ GET INFO ON MODELS
 googlesamples-assistant-devicetool list --model
 
 REGISTER DEVICE ACTIONS
-googlesamples-assistant-devicetool register-model --manufacturer "RPH" --product-name "Talk To Light" --type LIGHT --trait Osc --trait catMode --trait discoMode --trait lightMode --trait spotlightMode --trait scannerMode --trait robotMode --trait spaceshipMode --trait alienMode --trait fireflyMode --trait rainbowMode --trait auroraMode --trait kittMode --model talk-to-light-model-e
+googlesamples-assistant-devicetool register-model --manufacturer "RPH" --product-name "Talk To Light" --type LIGHT --trait goodnightMode --trait Osc --trait catMode --trait discoMode --trait lightMode --trait spotlightMode --trait scannerMode --trait robotMode --trait spaceshipMode --trait alienMode --trait fireflyMode --trait rainbowMode --trait auroraMode --trait kittMode --model talk-to-light-v1
 
 LIBRARY:
 REGISTER DEVICE
-googlesamples-assistant-devicetool register-device --client-type LIBRARY --model talk-to-light-model-e --device 064B0AAFD49C4D25EBE6775C51890696
+googlesamples-assistant-devicetool register-device --client-type LIBRARY --model talk-to-light-v1 --device 064B0AAFD49C4D25EBE6775C51890696
 
 
 
@@ -18,4 +18,4 @@ googlesamples-assistant-devicetool register-device --client-type LIBRARY --model
 ##############
 
 source env/bin/activate
-python talktolightdev/py/talktolight.py --device_model_id talk-to-light-model-v1
+python talktolightdev/py/talktolight.py --device_model_id talk-to-light-v1
