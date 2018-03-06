@@ -10,6 +10,7 @@
 #include "ofMain.h"
 #include "LightCircle.h"
 #include "LightMode.h"
+#include "GlowShapes.h"
 
 class LightModeGoodNight : public LightMode
 {
@@ -20,7 +21,6 @@ public:
     void reloadShaders() override;
     
     //states
-//    void onDelayComplete(float *arg) override;
     void animateIn() override; // init, set circles sizes etc.
     void animateOut(float duration=1) override; // clean up, reset, e.g. remove additional circles, when switching modes.
     
@@ -28,15 +28,23 @@ public:
     void setResponseState() override;
     void setNormalState() override;
     
-    void randomizePosition();
+//    void randomizePosition();
     LightCircle spotLight;
+    LightCircle moon;
+    LightCircle shadow;
+    struct Star{
+        ofVec2f pos;
+        float glow;
+        float sinOffset;
+        float sinPhase;
+    };
+    float mStarAlpha = 0;
 protected:
     
     float mBaseRadius = 200; //starting radius for the circle
     float mCenterBodyRadius = 300; //radius of a body/shadow under the projector
     int mIdleCounter = 0; //last time the idle swapped
     int mIdleDuration = 4000;
-    ofVec2f getNonCenter();
     void visualizeAudio(); //maybe pull out into mode base class?
-
+    std::vector<Star> stars;
 };

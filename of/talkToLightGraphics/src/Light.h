@@ -18,7 +18,7 @@
 #include "LightModeRobot.h"
 #include "LightModeScanner.h"
 #include "LightModeSpotlight.h"
-#include "LightModeGOODNight.h"
+#include "LightModeGoodNight.h"
 #include "LightModeEt.h"
 #include "LightModeRainbow.h"
 #include "LightModeFirefly.h"

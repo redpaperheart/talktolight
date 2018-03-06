@@ -15,13 +15,33 @@ void LightModeGoodNight::setup( std::shared_ptr<LightCircle> assistantLightRef )
     mBaseRadius = 280;
     mCenterBodyRadius = 400;
     
-    spotLight.mRadius = mBaseRadius;
-    spotLight.mGlowRadius = mBaseRadius * 0.05;
-    spotLight.setTargetRadiusEnabled(true);
-    spotLight.setFilled(true);
-    spotLight.setColor(ofFloatColor::fromHex(0xffef68));
-    spotLight.setGlowColor(ofFloatColor::fromHex(0xfce340, 0.5f));
-    spotLight.mPosition = getNonCenter();
+//    LightCircle moon;
+//    LightCircle shadow;
+    for(int s=0; s<10; s++){
+        
+        Star star;
+        star.pos = ofVec2f(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        star.sinOffset =ofRandom(100000);
+        star.sinPhase =ofRandom(.01, .05);
+        star.glow = ofMap(sin(star.sinOffset), -1, 1, 1, 8);
+        stars.push_back(star);
+    }
+    mStarAlpha = 0;
+    moon.mRadius = mBaseRadius;
+//    moon.mGlowRadius = mBaseRadius * 0.05;
+    moon.setTargetRadiusEnabled(true);
+    moon.setFilled(true);
+    moon.setColor(ofFloatColor::fromHex(0xffef68));
+    moon.setGlowColor(ofFloatColor::fromHex(0xfce340, 0.5f));
+    moon.mPosition = getCenter();
+    
+    shadow.mRadius = mBaseRadius;
+    shadow.mGlowRadius = mBaseRadius * 0.05;
+    shadow.setTargetRadiusEnabled(true);
+    shadow.setFilled(true);
+    shadow.setColor(ofFloatColor::fromHex(0x000000));
+    shadow.setGlowColor(ofFloatColor::fromHex(0x000000, 0.5f));
+    shadow.mPosition = getCenter() + ofVec2f(mBaseRadius*.7, 0);;
 }
 
 void LightModeGoodNight::reloadShaders()
@@ -32,11 +52,10 @@ void LightModeGoodNight::reloadShaders()
 void LightModeGoodNight::animateIn()
 {
     // initialize anything mode specific here.
-    cout << "LightModeSpotlight::animateIn" << endl;
+    cout << "LightModeGoodNight::animateIn" << endl;
     mCurState = STATE_IN;
-    
-    mIdleCounter = ofGetElapsedTimeMillis();
-    spotLight.animatePosition(getNonCenter());
+    mStarAlpha = 0;
+    Tweenzor::add(&mStarAlpha, 0.0, 1.0, 0, 1, EASE_OUT_QUAD);
 }
 
 void LightModeGoodNight::animateOut(float duration)
@@ -45,26 +64,8 @@ void LightModeGoodNight::animateOut(float duration)
     cout << "LightModeEt::animateOut" << endl;
     
     //move spot light off screen
-    spotLight.animatePosition(getCenter()-ofVec2f(0.0, -ofGetHeight() - mBaseRadius));
-    
+    Tweenzor::add(&mStarAlpha, mStarAlpha, 0.0, 0, 1, EASE_OUT_QUAD);
     LightMode::animateOut(duration);
-}
-
-ofVec2f LightModeGoodNight::getNonCenter(){
-    ofVec2f randPos = ofVec2f(ofRandom(0, ofGetWidth()), ofRandom(0, ofGetHeight()));
-    //push out of the center if its in the center rect
-    float centerSpace = mCenterBodyRadius;
-    if(randPos.x> getCenter().x - centerSpace && randPos.x < getCenter().x + centerSpace){
-        if(randPos.y> getCenter().y - centerSpace && randPos.y < getCenter().y + centerSpace){
-            //push it out of the center on the x
-            if(randPos.x<getCenter().x){
-                randPos.x -= centerSpace;
-            }else{
-                randPos.x += centerSpace;
-            }
-        }
-    }
-    return randPos;
 }
 void LightModeGoodNight::update(){
     //DS: only update as long as this mode is still active
@@ -73,33 +74,37 @@ void LightModeGoodNight::update(){
     //also don't update if state is going out
     if(mCurState == STATE_OUT_START) return;
     
-    spotLight.update();
+    moon.update();
+    shadow.update();
+    for(int s=0; s<10; s++){
+        
+//        Star star;
+//        star.pos = ofVec2f(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()));
+        stars[s].sinOffset += stars[s].sinPhase;
+        stars[s].glow = ofMap(sin(stars[s].sinOffset), -1, 1, 1, 7);
+    }
+    
     switch(mModel->getCurState()){
         case Model::STATE_NONE:
             //nothing
             break;
         case Model::STATE_NORMAL:
             //wait for idle counter to pick a new location to go to
-            if(mIdleCounter + mIdleDuration < ofGetElapsedTimeMillis()){
-                mIdleCounter = ofGetElapsedTimeMillis();
-                randomizePosition();
-            }
+//            if(mIdleCounter + mIdleDuration < ofGetElapsedTimeMillis()){
+//                mIdleCounter = ofGetElapsedTimeMillis();
+//                randomizePosition();
+//            }
             break;
         case Model::STATE_QUESTION:
             //nothing
             break;
         case Model::STATE_RESPONSE:
             //rings are audio reactive
-            visualizeAudio();
+//            visualizeAudio();
             break;
     }
 }
-void LightModeGoodNight::randomizePosition(){
-    float duration = 1;
-    spotLight.mTargetRadius = ofRandom(mBaseRadius, mBaseRadius * 1.2);
-    spotLight.animatePosition(getNonCenter(), duration);
-    spotLight.animateRadius(spotLight.mTargetRadius, duration);
-}
+
 void LightModeGoodNight::visualizeAudio(){
     //called from update
     //scale the circle up and down with the snares
@@ -111,33 +116,43 @@ void LightModeGoodNight::draw(){
     //DS: only draw as long as this mode is still active
     if(mCurState == STATE_OUT) return;
     //draw spotlight
-    spotLight.draw();
+    moon.draw();
+    shadow.draw();
+    
+    ofSetColor(ofFloatColor::fromHex(0xffef68, mStarAlpha));
+    GlowShapes::setGlowColor(ofFloatColor::fromHex(0xfce340, 0.5f*mStarAlpha));
+    for(int s=0; s<10; s++){
+        
+        GlowShapes::drawCirc(stars[s].pos.x, stars[s].pos.y, 4, stars[s].glow);
+            
+    }
 }
 
 void LightModeGoodNight::setQuestionState()
 {
     cout << "LightModeEt::setQuestionState" << endl;
     isWaitingForResponse = true;
-    spotLight.animatePosition(getCenter(), .2, 0, EASE_OUT_QUAD);
-    spotLight.setTargetRadiusEnabled(false);
-    spotLight.animateRadius(mBaseRadius*1.5, 1, 0, EASE_OUT_ELASTIC);
+//    spotLight.animatePosition(getCenter(), .2, 0, EASE_OUT_QUAD);
+//    spotLight.setTargetRadiusEnabled(false);
+//    spotLight.animateRadius(mBaseRadius*1.5, 1, 0, EASE_OUT_ELASTIC);
 }
 
 void LightModeGoodNight::setResponseState()
 {
     cout << "LightModeEt::setResponseState" << endl;
     //stay in middle.. or make sure in the middle
-    spotLight.setTargetRadiusEnabled(true);
+//    spotLight.setTargetRadiusEnabled(true);
     isWaitingForResponse = false;
-    spotLight.animatePosition(getCenter());
+//    spotLight.animatePosition(getCenter());
 }
 
 void LightModeGoodNight::setNormalState()
 {
     cout << "LightModeEt::setNormalState" << endl;
     //push far offsceen
-    spotLight.setTargetRadiusEnabled(false);
-    randomizePosition();
-    mIdleCounter = ofGetElapsedTimeMillis();
+    moon.setTargetRadiusEnabled(false);
+    shadow.setTargetRadiusEnabled(false);
+//    randomizePosition();
+//    mIdleCounter = ofGetElapsedTimeMillis();
 }
 

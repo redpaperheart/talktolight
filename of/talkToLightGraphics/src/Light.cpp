@@ -135,44 +135,6 @@ void Light::changeState(Model::State state){
     
     mModel->setCurState(state);
 }
-//void Light::changeToRandomMode(){
-//    int r = ofRandom(0, 10);
-//    switch(r){
-//        case 0:
-//            setMode(Model::MODE_LASER);
-//            break;
-//        case 1:
-//            setMode(Model::MODE_DISCO);
-//            break;
-//        case 2:
-//            setMode(Model::MODE_AURORA);
-//            break;
-//        case 3:
-//            setMode(Model::MODE_ROBOT);
-//            break;
-//        case 4:
-//            setMode(Model::MODE_SCANNER);
-//            break;
-//        case 5:
-//            setMode(Model::MODE_SPOTLIGHT);
-//            break;
-//        case 6:
-//            setMode(Model::MODE_RAINBOW);
-//            break;
-//        case 7:
-//            setMode(Model::MODE_ALIEN);
-//            break;
-//        case 8:
-//            setMode(Model::MODE_FIREFLY);
-//            break;
-//        case 9:
-//            setMode(Model::MODE_SPACESHIP);
-//            break;
-//        default:
-//            setMode(Model::MODE_RAINBOW);
-//            break;
-//    }
-//}
 void Light::setMode(Model::Mode mode)
 {
     if (mode == mModel->mCurMode) return;
@@ -218,6 +180,9 @@ void Light::setMode(Model::Mode mode)
             break;
         case Model::MODE_SPACESHIP:
             mModeCurrent = mModeSpaceship;
+            break;
+        case Model::MODE_GOODNIGHT:
+            mModeCurrent = mModeGoodNight;
             break;
     }
 //    mModeCurrent->animateIn();
