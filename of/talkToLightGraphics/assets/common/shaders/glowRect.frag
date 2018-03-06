@@ -23,7 +23,7 @@ float roundRect( vec2 p, vec2 b, float r )
 float glowRect(vec2 texcoords)
 {
     // in pixel coords
-    float radius = totalPixelSize.x * 0.15;
+    float radius = totalPixelSize.x * 0.1;
     vec2 border = 0.5 * (totalPixelSize - rectPixelSize);
     float blur = border.y;
     
@@ -44,10 +44,10 @@ void main()
     float ratio = vTexCoord.x / vTexCoord.y;
     vec2 uv = vTexCoord * 2.0 - 1.0;
     
-    float rect = 1.0 - clamp(rectangle(uv, rectSize) * 20.0, 0.0, 1.0);
-    float glow = glowRect(vTexCoord) * 0.7;
+    float rect = 1.0 - clamp(rectangle(uv, rectSize) * 200.0, 0.0, 1.0);
+    float glow = glowRect(vTexCoord);// * 0.7;
     
-    gl_FragColor.rgb = mix(glowColor.rgb, vColor.rgb, rect);
-    gl_FragColor.a = max(rect, glow);
+    gl_FragColor = mix(glowColor, vColor, rect);
+    gl_FragColor.a *= max(rect, glow);
 }
 

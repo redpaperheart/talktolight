@@ -41,12 +41,7 @@ void LightModeSpaceship::setup( std::shared_ptr<LightCircle> assistantLightRef )
 
 void LightModeSpaceship::reloadShaders()
 { 
-#ifdef TARGET_OPENGLES
-	mBoxShader.load(mModel->assetPath + "/spaceship/shaders_gles/box.vert", mModel->assetPath + "/spaceship/shaders_gles/box.frag");
-#else
-	mBoxShader.load(mModel->assetPath + "/spaceship/shaders/box.vert", mModel->assetPath + "/spaceship/shaders/box.frag");
-#endif
-
+    GlowShapes::reloadShaders();
 }
 
 void LightModeSpaceship::animateIn()
@@ -112,53 +107,26 @@ void LightModeSpaceship::update(){
 void LightModeSpaceship::draw(){
     //DS: only draw as long as this mode is still active
     if(mCurState == STATE_OUT) return;
-	ofPushMatrix();
-		ofTranslate(mBoxes[0].mWidth/2, mBoxes[0].mHeight/2);
-		mBoxShader.setUniform1f("uTime", ofGetElapsedTimef() );
-		mBoxShader.setUniform2f("uRes", ofVec2f(ofGetWidth(), ofGetHeight()));
-		mBoxShader.setUniform1i("uBorder", mBorder );
-		
-		
-			/*
-		//drawing a blurred edged box on top		
-		mBoxShader.begin();
-		for (int i = 0; i < mBoxes.size(); i++) {
-			mBoxShader.setUniform1f("uAlphaMult", mBoxes[i].alphaMult );
-			if(mBoxes[i].alphaMult > 0.0){
-				ofFill();
-				ofSetColor( 10.0, 50.0, 255);
-				mBoxes[i].mPlane.setScale(ofVec3f(1.0, 1.2, 1.0)); // strechting the box
-				mBoxes[i].mPlane.draw();
-				mBoxes[i].mPlane.setScale(ofVec3f(1.0)); // setting them back
-			}
-		}
-		mBoxShader.end(); 
-		*/
-		
-		float glow = mRectGlow ;
-		//drawing a solid box first	
-		for (int i = 0; i < mBoxes.size(); i++) {
-			//mBoxShader.setUniform1f("uAlphaMult", mBoxes[i].alphaMult );
-			if(mBoxes[i].alphaMult>0){
-				ofFill();
-				ofSetColor( 0.0, 0.0, 255, 255 * mBoxes[i].alphaMult);
-//				GlowShapes::setGlowColor(ofFloatColor(0.1, 0.10, 0.80, 0.5));
-				mBoxes[i].mPlane.setScale(ofVec3f(1.0, 0.9, 1.0)); // squashing the box
-				mBoxes[i].mPlane.draw();
-				//GlowShapes::drawRect(mBoxes[i].mWidth * -.5, mBoxes[i].mHeight * -.5, mBoxes[i].mWidth, mBoxes[i].mHeight, glow);
-				//mBoxes[i].mPlane.setScale(ofVec3f(1.0)); //setting them back to normal
-			}
-		}
+
+    ofPushMatrix();
+//    ofTranslate(mBoxes[0].mWidth/2, mBoxes[0].mHeight/2);
+
+    //drawing a solid box first
+    for (int i = 0; i < mBoxes.size(); i++) {
+        auto &box = mBoxes[i];
+        
+        if(box.alphaMult>0){
+            ofVec2f pos(box.mPlane.getPosition());
+            ofVec2f size(box.mWidth, box.mHeight);
+            ofSetColor( 0.0, 0.0, 255.0, 255.0f * box.alphaMult);
+            GlowShapes::setGlowColor(ofFloatColor(0.0f, 0.0f, 1.0f, 0.25f * box.alphaMult));
+            GlowShapes::drawRect(pos.x - size.x * 0.5f, pos.y - size.y * 0.5f, size.x, size.y, size.y * 2.0f);
+        }
+    }
 		
 		
 	ofPopMatrix();
 }
-
-/*
-void LightModeSpaceship::setAlphaToZero(float* arg){
-	alphaTrigger = false;
-}
-*/
 
 void LightModeSpaceship::onIdle(){
 
