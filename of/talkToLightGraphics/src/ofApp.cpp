@@ -667,7 +667,7 @@ void ofApp::keyPressed(int key)
             break;
         case OF_KEY_RIGHT :{
             float s = .1;
-            mModel->volumeScaler = ofClamp(mModel->volumeScaler-s, .1, 100);
+            mModel->volumeScaler = ofClamp(mModel->volumeScaler+s, .1, 100);
             break;}
         case OF_KEY_LEFT :{
             float a = .1;

@@ -46,7 +46,7 @@ void ETRing::setLerpEnabled(bool _val){
 void ETRing::draw(){
     ofFill();
     ofSetColor(ofFloatColor(1.0, 0.58, 0.08, 1.0));
-    GlowShapes::setGlowColor(ofFloatColor(0.45, 0.0, 0.0, 0.5));
+    GlowShapes::setGlowColor(ofFloatColor(0.5, 0.0, 0.0, 0.4));
     ofPushMatrix();
     ofRotateZ(mRotation);
     
@@ -55,7 +55,6 @@ void ETRing::draw(){
          //draw a dot then rotate the
         ofPushMatrix();
         ofTranslate(0, mRadius, 0);
-//        mShapeScale = 0.30f;
         
         if (mShapeScale > 0.0f) {
             if(mShapeId==0){
@@ -65,7 +64,6 @@ void ETRing::draw(){
                 float w = mThickness * 5;
                 float h = mThickness * 2 * mShapeScale;
                 float glow = mRectGlow * mShapeScale;
-//                GlowShapes::drawRect(w * -.5, h * -.5, w, h, glow);
                 GlowShapes::drawRect(w * -.5, h * -.5, w, h, glow);
             }
         }

@@ -63,7 +63,7 @@ void GlowShapes::drawCirc(float x, float y, float r, float glow)
     
     if (sDebug) {
         ofPushStyle();
-        ofSetColor(255, 100);
+        ofSetColor(255, 50);
         ofNoFill();
         ofDrawCircle(x, y, r);
         ofDrawRectangle(x - totalRad, y - totalRad, rectPixelSize, rectPixelSize);
@@ -95,7 +95,7 @@ void GlowShapes::drawRing(float x, float y, float innerRad, float outerRad, floa
     
     if (sDebug) {
         ofPushStyle();
-        ofSetColor(255, 100);
+        ofSetColor(255, 50);
         ofNoFill();
         ofDrawCircle(x, y, innerRad);
         ofDrawCircle(x, y, outerRad);
@@ -127,7 +127,7 @@ void GlowShapes::drawRect(float x, float y, float w, float h, float glow)
     
     if (sDebug) {
         ofPushStyle();
-        ofSetColor(255, 100);
+        ofSetColor(255, 50);
         ofNoFill();
         ofDrawRectangle(x, y, w, h);
         ofDrawRectangle(x - 0.5 * glow, y - 0.5 * glow, w + glow, h + glow);
