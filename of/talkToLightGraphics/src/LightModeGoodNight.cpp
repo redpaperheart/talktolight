@@ -12,11 +12,9 @@ void LightModeGoodNight::setup( std::shared_ptr<LightCircle> assistantLightRef )
 {
     // DS: pass the assistantLightRef to the super's setup function
     LightMode::setup( assistantLightRef );
-    mBaseRadius = 280;
-    mCenterBodyRadius = 400;
+    mBaseRadius = 100;
+//    mCenterBodyRadius = 400;
     
-//    LightCircle moon;
-//    LightCircle shadow;
     for(int s=0; s<10; s++){
         
         Star star;
@@ -27,21 +25,21 @@ void LightModeGoodNight::setup( std::shared_ptr<LightCircle> assistantLightRef )
         stars.push_back(star);
     }
     mStarAlpha = 0;
+    moonPos = getCenter();
     moon.mRadius = mBaseRadius;
-//    moon.mGlowRadius = mBaseRadius * 0.05;
-    moon.setTargetRadiusEnabled(true);
+//    moon.setTargetRadiusEnabled(true);
     moon.setFilled(true);
     moon.setColor(ofFloatColor::fromHex(0xffef68));
     moon.setGlowColor(ofFloatColor::fromHex(0xfce340, 0.5f));
-    moon.mPosition = getCenter();
+    moon.mPosition = moonPos;
     
-    shadow.mRadius = mBaseRadius;
+    shadow.mRadius = mBaseRadius*1.1;
     shadow.mGlowRadius = mBaseRadius * 0.05;
-    shadow.setTargetRadiusEnabled(true);
+//    shadow.setTargetRadiusEnabled(true);
     shadow.setFilled(true);
     shadow.setColor(ofFloatColor::fromHex(0x000000));
     shadow.setGlowColor(ofFloatColor::fromHex(0x000000, 0.5f));
-    shadow.mPosition = getCenter() + ofVec2f(mBaseRadius*.7, 0);;
+    shadow.mPosition = moonPos;
 }
 
 void LightModeGoodNight::reloadShaders()
@@ -56,6 +54,11 @@ void LightModeGoodNight::animateIn()
     mCurState = STATE_IN;
     mStarAlpha = 0;
     Tweenzor::add(&mStarAlpha, 0.0, 1.0, 0, 1, EASE_OUT_QUAD);
+    
+    moon.mPosition = moonPos;
+    shadow.mPosition = moonPos;
+    shadow.animateRadius(mBaseRadius);
+    shadow.animatePosition(moonPos + ofVec2f(mBaseRadius*.7, 0));
 }
 
 void LightModeGoodNight::animateOut(float duration)
@@ -63,8 +66,10 @@ void LightModeGoodNight::animateOut(float duration)
     // reset, clean up anything when switching of this mode.
     cout << "LightModeEt::animateOut" << endl;
     
-    //move spot light off screen
     Tweenzor::add(&mStarAlpha, mStarAlpha, 0.0, 0, 1, EASE_OUT_QUAD);
+//     moon.mPosition = getCenter();
+    shadow.animateRadius(mBaseRadius * 1.6);
+    shadow.animatePosition(moonPos);
     LightMode::animateOut(duration);
 }
 void LightModeGoodNight::update(){
@@ -105,12 +110,12 @@ void LightModeGoodNight::update(){
     }
 }
 
-void LightModeGoodNight::visualizeAudio(){
-    //called from update
-    //scale the circle up and down with the snares
-    spotLight.mTargetRadius = mBaseRadius * (1 + (mModel->mBeat.snare()*.5));
-    spotLight.mGlowRadius = ofLerp(spotLight.mGlowRadius, spotLight.mRadius * 0.2, 0.15);
-}
+//void LightModeGoodNight::visualizeAudio(){
+//    //called from update
+//    //scale the circle up and down with the snares
+//    spotLight.mTargetRadius = mBaseRadius * (1 + (mModel->mBeat.snare()*.5));
+//    spotLight.mGlowRadius = ofLerp(spotLight.mGlowRadius, spotLight.mRadius * 0.2, 0.15);
+//}
 
 void LightModeGoodNight::draw(){
     //DS: only draw as long as this mode is still active

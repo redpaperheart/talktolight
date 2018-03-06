@@ -28,8 +28,6 @@ public:
     void setResponseState() override;
     void setNormalState() override;
     
-//    void randomizePosition();
-    LightCircle spotLight;
     LightCircle moon;
     LightCircle shadow;
     struct Star{
@@ -42,9 +40,10 @@ public:
 protected:
     
     float mBaseRadius = 200; //starting radius for the circle
-    float mCenterBodyRadius = 300; //radius of a body/shadow under the projector
-    int mIdleCounter = 0; //last time the idle swapped
-    int mIdleDuration = 4000;
-    void visualizeAudio(); //maybe pull out into mode base class?
+    ofVec2f moonPos;
+//    float mCenterBodyRadius = 300; //radius of a body/shadow under the projector
+//    int mIdleCounter = 0; //last time the idle swapped
+//    int mIdleDuration = 4000;
+//    void visualizeAudio(); //maybe pull out into mode base class?
     std::vector<Star> stars;
 };
