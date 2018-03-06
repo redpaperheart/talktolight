@@ -76,6 +76,11 @@ void Light::setup()
     mModeRainbow->setup( mAssistantLightRef );
     mModes.push_back(mModeRainbow);
     
+    // create Good Night mode
+    mModeGoodNight = std::make_shared<LightModeGoodNight>();
+    mModeGoodNight->setup( mAssistantLightRef );
+    mModes.push_back(mModeGoodNight);
+    
     //start on a random mode
     if(startMode==Model::MODE_NONE){
         setMode(Model::MODE_SPOTLIGHT);

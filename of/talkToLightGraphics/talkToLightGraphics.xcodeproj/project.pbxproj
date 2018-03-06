@@ -15,6 +15,7 @@
 		0619F1D8204620B0008021D7 /* LightModeSpaceship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0619F1D6204620AF008021D7 /* LightModeSpaceship.cpp */; };
 		068FD99820423100002AC3F2 /* LightModeScanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 068FD995204230FF002AC3F2 /* LightModeScanner.cpp */; };
 		068FD99920423100002AC3F2 /* LightModeRainbow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 068FD996204230FF002AC3F2 /* LightModeRainbow.cpp */; };
+		06EEDC82204E35AF0070474A /* LightModeGoodNight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06EEDC81204E35AF0070474A /* LightModeGoodNight.cpp */; };
 		079345FBB00102C5E5253867 /* OscReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 53695E4D605BAC0C3021C4FD /* OscReceivedElements.cpp */; };
 		0A6BB18B4F7DDE738DF3E472 /* ofxOscBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 97F9274CB66777C4347A994D /* ofxOscBundle.cpp */; };
 		201E029C2040B6E500A008F0 /* ofxBlurShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201E029B2040B6E500A008F0 /* ofxBlurShader.cpp */; };
@@ -103,6 +104,8 @@
 		068FD995204230FF002AC3F2 /* LightModeScanner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightModeScanner.cpp; sourceTree = "<group>"; };
 		068FD996204230FF002AC3F2 /* LightModeRainbow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightModeRainbow.cpp; sourceTree = "<group>"; };
 		068FD997204230FF002AC3F2 /* LightModeRainbow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightModeRainbow.h; sourceTree = "<group>"; };
+		06EEDC80204E35AF0070474A /* LightModeGoodNight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightModeGoodNight.h; sourceTree = "<group>"; };
+		06EEDC81204E35AF0070474A /* LightModeGoodNight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightModeGoodNight.cpp; sourceTree = "<group>"; };
 		087CE9457D0D35B5EA6AAE3C /* OscHostEndianness.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscHostEndianness.h; path = ../../../of_v0.9.8_osx_release/addons/ofxOsc/libs/oscpack/src/osc/OscHostEndianness.h; sourceTree = SOURCE_ROOT; };
 		10EB7B41FB1630144CE10B17 /* OscTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscTypes.h; path = ../../../of_v0.9.8_osx_release/addons/ofxOsc/libs/oscpack/src/osc/OscTypes.h; sourceTree = SOURCE_ROOT; };
 		111D53C495D3147527D157A3 /* ofxOscMessage.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscMessage.h; path = ../../../of_v0.9.8_osx_release/addons/ofxOsc/src/ofxOscMessage.h; sourceTree = SOURCE_ROOT; };
@@ -369,6 +372,8 @@
 		6573B8CC1ED4E40900C1B89B /* modes */ = {
 			isa = PBXGroup;
 			children = (
+				06EEDC81204E35AF0070474A /* LightModeGoodNight.cpp */,
+				06EEDC80204E35AF0070474A /* LightModeGoodNight.h */,
 				6573B8C91ED4E3F600C1B89B /* LightMode.h */,
 				6573B8C81ED4E3F600C1B89B /* LightMode.cpp */,
 				0619F1D02044DF3C008021D7 /* LightModeFirefly.cpp */,
@@ -652,6 +657,7 @@
 				0A6BB18B4F7DDE738DF3E472 /* ofxOscBundle.cpp in Sources */,
 				0619F1D8204620B0008021D7 /* LightModeSpaceship.cpp in Sources */,
 				DB4CF92724BBDE6D7DB0FB75 /* ofxOscMessage.cpp in Sources */,
+				06EEDC82204E35AF0070474A /* LightModeGoodNight.cpp in Sources */,
 				20F51FB1203F47B7003D8E28 /* ETRing.cpp in Sources */,
 				20875803203C900F00A9656F /* LightRect.cpp in Sources */,
 				068FD99920423100002AC3F2 /* LightModeRainbow.cpp in Sources */,

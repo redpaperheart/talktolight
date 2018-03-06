@@ -29,6 +29,7 @@
 #define OSC_MODE_SCANNER        "/mode/scanner"
 #define OSC_MODE_FIREFLY        "/mode/firefly"
 #define OSC_MODE_CAR            "/mode/kitt"
+#define OSC_MODE_GOODNIGHT      "/mode/goodnight"
 
 
 

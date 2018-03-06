@@ -29,6 +29,7 @@ void ofApp::setup()
     "i - mode FireFly \n"
     "o - mode Scanner \n"
     "p - mode Rainbow \n"
+    "g - mode Good Night \n"
     
     "\n"
     "<- / -> - disco sensitivity "
@@ -170,6 +171,9 @@ void ofApp::setMode(string osc){
     }
     else if (osc == OSC_MODE_FIREFLY) {
         mLight.setMode(Model::MODE_FIREFLY);
+    }
+    else if (osc == OSC_MODE_GOODNIGHT) {
+        mLight.setMode(Model::MODE_GOODNIGHT);
     }
     //relay the mode back out over osc
     sendMessage(osc);
@@ -629,6 +633,10 @@ void ofApp::keyPressed(int key)
         case 'p':
         case 'P':
             setMode(OSC_MODE_RAINBOW);
+            break;
+        case 'h':
+        case 'H':
+            setMode(OSC_MODE_GOODNIGHT);
             break;
         case 's':
             changeToRandomMode();
