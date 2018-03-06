@@ -16,7 +16,7 @@ void LightModeLaser::setup( std::shared_ptr<LightCircle> assistantLightRef )
     mScale = 1;
 
     mLaserPointer = std::make_shared<LightCircleTrail>(getRandomPointInScreen(), 0);
-    mLaserPointer->setColor(ofFloatColor::red);
+    mLaserPointer->setColor(ofFloatColor::fromHex(0xed1c24));
     mLaserPointer->setFilled(true);
     mLaserPointer->animateRadius(mRadiusOrig * mScale);
     mLaserPointer->mCatTarget = getRandomPointInScreen();
