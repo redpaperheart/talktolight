@@ -57,8 +57,15 @@ void LightModeGoodNight::animateIn()
     
     moon.mPosition = moonPos;
     shadow.mPosition = moonPos;
-    shadow.animateRadius(mBaseRadius);
+    
+//    shadow.animateRadius(mBaseRadius * 1.1);
     shadow.animatePosition(moonPos + ofVec2f(mBaseRadius*.7, 0));
+    
+    Tweenzor::add(&mTimer, 0.0, 1.0, 0, 4, EASE_LINEAR);
+    Tweenzor::addCompleteListener( Tweenzor::getTween(&mTimer), this, &LightModeGoodNight::onAnimateInComplete);
+}
+void LightModeGoodNight::onAnimateInComplete(float *arg){
+    animateOut();
 }
 
 void LightModeGoodNight::animateOut(float duration)
@@ -68,7 +75,7 @@ void LightModeGoodNight::animateOut(float duration)
     
     Tweenzor::add(&mStarAlpha, mStarAlpha, 0.0, 0, 1, EASE_OUT_QUAD);
 //     moon.mPosition = getCenter();
-    shadow.animateRadius(mBaseRadius * 1.6);
+//    shadow.animateRadius(mBaseRadius * 1.6);
     shadow.animatePosition(moonPos);
     LightMode::animateOut(duration);
 }
