@@ -54,6 +54,7 @@ OSC_MODE_SPACESHIP    = "/mode/spaceship"
 OSC_MODE_ALIEN        = "/mode/alien"
 OSC_MODE_FIREFLY      = "/mode/firefly"
 OSC_MODE_KITT         = "/mode/kitt"
+OSC_MODE_GOODNIGHT	  = "/mode/goodnight"	
 
 OSC_MUSIC_PLAY        = "/music/play"
 OSC_MUSIC_STOP        = "/music/stop"
@@ -166,6 +167,9 @@ def process_event(event, device_id):
             if command == "kittMode":
                 print('Attempting change to kitt mode')
                 send_osc( OSC_MODE_KITT );
+            if command == "goodnightMode":
+                print('Attempting change to good night mode')
+                send_osc( OSC_MODE_GOODNIGHT );
 
 
 def register_device(project_id, credentials, device_model_id, device_id):
