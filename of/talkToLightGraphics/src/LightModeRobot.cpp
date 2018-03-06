@@ -92,8 +92,13 @@ void LightModeRobot::draw(){
     //DS: only draw as long as this mode is still active
     if(mCurState == STATE_OUT) return;
     //draw eye
+//    ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofPushStyle();
+    ofEnableAlphaBlending();
     bigEye.draw();
     littleEye.draw();
+    ofPopStyle();
+//    ofDisableBlendMode();
 }
 
 void LightModeRobot::setQuestionState()

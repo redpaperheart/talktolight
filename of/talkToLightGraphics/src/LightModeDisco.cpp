@@ -55,6 +55,7 @@ void LightModeDisco::draw()
     if(mCurState == STATE_OUT) return;
     
     ofPushMatrix();
+    ofPushStyle();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
     
     float rotation = 2.61803398875 * ofGetElapsedTimef();
@@ -68,6 +69,7 @@ void LightModeDisco::draw()
     }
 
     ofDisableBlendMode();
+    ofPopStyle();
     ofPopMatrix();
 }
 
