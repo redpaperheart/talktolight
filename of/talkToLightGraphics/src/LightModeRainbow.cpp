@@ -54,7 +54,7 @@ void LightModeRainbow::update()
 
     // save smoothed audio history
     float vol = mIsResponse ? mModel->mVolCur : 0.0f;
-    float volScaled = ofMap(vol, 0.0, 0.02, 0.0, 1.0, true);
+    float volScaled = ofMap(vol, 0.0, 0.02 * mModel->volumeScaler, 0.0, 0.92, true);
     float prev = mSoundHistory.empty() ? 0 : mSoundHistory.front();
     float smth = ofLerp(prev, volScaled, (volScaled - prev) > 0.0 ? 0.5 : 0.1);
     
@@ -78,7 +78,6 @@ void LightModeRainbow::update()
     
     for (auto &spot : mSpotlights) {
         if (!spot.alive) {
-            
             if (numSpotlights < maxSpotLights && spotLightsAdded < 1) {
                 numSpotlights ++;
                 spotLightsAdded ++;
@@ -135,10 +134,11 @@ void LightModeRainbow::draw()
     
     float y = ofGetWindowHeight() * 0.5f;
     float hueOffset = ofGetElapsedTimef() * 20.0f;
+    float highlightCtr = ofNoise(ofGetElapsedTimef() * 0.5f) * 0.3f + 0.35f;
     
     for (const auto &spot : mSpotlights) {
         if (spot.alive) {
-            float x = ofGetWindowWidth() * spot.pos;
+            float x = ofGetWindowWidth() * ofLerp(spot.pos, highlightCtr, mQuestionHighlight * 0.9f);
             float alpha = 255.0f * 5.0f * spot.t * exp(1.0f - 5.0f * spot.t);
             float hue = fmodf(255.0f * spot.pos + hueOffset, 255.0f);
             float vol = mSoundHistory.empty() ? 0 : mSoundHistory.front();
@@ -221,7 +221,7 @@ void LightModeRainbow::animateOut(float duration)
 void LightModeRainbow::setQuestionState()
 {
     cout << "LightModeRainbow::setQuestionState" << endl;
-    Tweenzor::add(&mQuestionHighlight, mQuestionHighlight, 1.0f, 0.0f, 0.5f, EASE_IN_OUT_QUAD);
+    Tweenzor::add(&mQuestionHighlight, mQuestionHighlight, 1.0f, 0.0f, 1.0f, EASE_IN_OUT_QUAD);
     mIsResponse = false;
 }
 
