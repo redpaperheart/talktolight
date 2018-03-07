@@ -10,7 +10,7 @@
 
 
 
-Google teamed up with [Red Paper Heart](http://redpaperheart.com) to design an open source interactive art installation that would showcase the potential of the Google Assistant SDK from RPH's point of view. The goal? To inspire developers and makers everywhere to experiment and build with it themselves.
+[Red Paper Heart](http://redpaperheart.com) designed an open source interactive art installation that would showcase the potential of the Google Assistant SDK from RPH's point of view. The goal? To inspire developers and makers everywhere to experiment and build with it themselves, just like we did.
 
 We were moved by the opportunity to translate this remarkable new reality of ours into an interaction that’s as comical as it is inspiring – to express the kind of wonder and humor we feel when using the Assistant, because that’s how we do.
 
@@ -18,7 +18,6 @@ So, we created [TalkToLight](http://redpaperheart.com/work/talktolight).
 
 ### Features:
 
-- A model and inspiration for other projects that integrate the Google Assistant SDK
 - Modular software design allows you to customize your light and add more modes
 - Voice-controlled light that triggers different graphics based to following commands:
 
@@ -38,7 +37,7 @@ So, we created [TalkToLight](http://redpaperheart.com/work/talktolight).
 
 ## What You'll Need
 
-Besides a Raspbery Pi, Talk To Light can be build with different components and is fairly flexible in it's set up. You do need at least one usb microphone (webcams work , too), a speaker (USB, audio via HDMI or 3.5mm jack) and a projector. The Housing is optional but makes it look much better. We built the housing around a specific projector and you might need to adjust the housing measurements if you use a different one.
+Besides a Raspberry Pi, Talk To Light can be build with different components and is fairly flexible in its set up. You do need at least one USB microphone (webcams work too), a speaker (USB, audio via HDMI or 3.5mm jack) and a projector. The Housing is optional but it makes it look much better. We built the housing around a specific projector and you might need to adjust the housing measurements if you use a different one.
 
 
 - **Estimated time to assemble:** 3h + time to build the housing
@@ -62,7 +61,7 @@ Please see our [recommended hardware](docs/HARDWARE.md) list for further details
 
 ### Optional - the housing
 Main goal was to hide the tech and make it look like a lamp.
-We used precisely laser cut acrilyc but you could also build a housing any other materials that are readily available to you and your imagination.
+We used precisely laser cut acrylic but you could also build a housing any other materials that are readily available to you and your imagination.
 
 
 ---
