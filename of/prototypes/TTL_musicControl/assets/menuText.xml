@@ -25,9 +25,6 @@
     		<id>/mode/spotlight</id>
     		<text>talk like a spotlight</text></mode>
     	<mode>
-    		<id>/mode/robot</id>
-    		<text>talk like an evil robot</text></mode>
-    	<mode>
     		<id>/mode/firefly</id>
     		<text>talk like fireflies</text></mode>
     </lightMenu>
@@ -68,7 +65,7 @@
             </options>
         </mode>
         <mode>
-            <id>/mode/robot</id>
+            <id>none</id>
             <options>
                 <option><text lines="1">What is the fastest</text></option>
                 <option><text>computer in the world?</text></option>
@@ -121,8 +118,7 @@
                 <option><text lines="1">What causes the Northern</text></option>
                 <option><text>Lights?</text></option>
                 <option><text>What is the weather today?</text></option>
-                <option><text lines="1">When is the next meteor</text></option>
-                <option><text>shower?</text></option>
+                <option><text lines="1">What is a meteor shower?</text></option>
     		</options>
     	</mode>
     	
