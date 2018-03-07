@@ -86,6 +86,7 @@ void ofApp::loadSettings(){
         settings.setValue("settings:musicControlIP", "192.168.0.61");
         settings.setValue("settings:menuControlIP", "192.168.0.60");
         settings.setValue("settings:idleTimeout", 60000);
+        settings.setValue("settings:volumeScaler", 1.0);
         settings.saveFile("settings.xml");
     }
     
@@ -95,6 +96,7 @@ void ofApp::loadSettings(){
     setDebug(settings.getValue("settings:launchDebug", false));
     mModel->musicControlIP = settings.getValue("settings:musicControlIP", "192.168.0.61");
     mModel->menuControlIP = settings.getValue("settings:menuControlIP", "192.168.0.60");
+    mModel->volumeScaler = settings.getValue("settings:volumeScaler", 1.0);
     mModel->bDebug = mDebug;
     mModel->idleTimeout = settings.getValue("settings:idleTimeout", 60000);
     if(settings.getValue("settings:launchFullscreen", false)){
@@ -108,7 +110,7 @@ void ofApp::update(){
     mAMPM->update();
 	//lets scale the vol up to a 0-1 range 
 	//mScaledVol = ofMap(mSmoothedVol, 0.0, 0.17, 0.0, 1.0, true);
-	mModel->mVolScaled = ofMap(mModel->mVolCur, 0.0, 0.17, 0.0, 1.0, true);
+	mModel->mVolScaled = ofMap(mModel->mVolCur *mModel->volumeScaler, 0.0, 0.17, 0.0, 1.0, true);
 
     //lets record the volume into an array
     mModel->mVolHistory.push_back( mModel->mVolCur );

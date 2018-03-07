@@ -4,8 +4,18 @@
 			"launchCommand": "../bin/talkToLightGraphics",
 			"maxMemory":0,
 			"startupTimeout":30,
-			"heartbeatTimeout":5
-			//touch
+			"heartbeatTimeout":5,
+			"restartMachineAfter": Infinity,
+			"shutdownSchedule": null,
+			"shutdownPcSchedule": null,
+			// Start up the app on this schedule -- see cronmaker.com for the format.
+			"startupSchedule": null,
+			// Restart the app on this schedule -- see cronmaker.com for the format. 
+			"restartSchedule": null,
+			// Restart the PC on this schedule -- see cronmaker.com for the format.
+			"restartPcSchedule": null,
+			// Restart the app if it uses more than this much memory.
+			"maxMemory": Infinity
 		},
 		"permissions":{
 			 "rph": {
