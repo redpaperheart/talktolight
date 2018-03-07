@@ -65,6 +65,10 @@ public:
     bool isTransitioningStates();
     float volumeScaler = 1; //used for adjusting volume sensitivity
     
+    float discoVolumeScaler=1;
+    float rainbowVolumeScaler=1;
+    float fireflyVolumeScaler=1;
+    
     int idleTimeout = 60000; //millis
     int idleTimer = 10000;
     void resetIdleTimer(){

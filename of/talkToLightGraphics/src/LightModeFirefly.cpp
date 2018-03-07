@@ -55,7 +55,7 @@ void LightModeFirefly::update()
     LightMode::update();
     
     // Smooth volume
-    float vol = mIsResponse ? mModel->mVolCur : 0.0f;
+    float vol = mIsResponse ? mModel->mVolCur * mModel->fireflyVolumeScaler * mModel->volumeScaler: 0.0f;
     float volScaled = ofMap(vol, 0.0, 0.02, 0.0, 1.0, true);
     mSmoothVol = ofLerp(mPrevVol, volScaled, (volScaled - mPrevVol) > 0.1 ? 0.5 : 0.3);
     mPrevVol = mSmoothVol;

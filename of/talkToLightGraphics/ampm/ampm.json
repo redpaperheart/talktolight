@@ -8,13 +8,8 @@
 		},
 		"permissions":{
 			 "rph": {
-				// The password for that user.
 				"password": "rph",
-
-				// If true, the user can shutdown, start, and restart the app.
 				"app": true,
-
-				// If true, the user can restart the computer.
 				"computer": true
 			}
 		},

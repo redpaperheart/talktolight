@@ -34,6 +34,7 @@ class LightModeDisco : public LightMode {
     void addLightIdle();
     void addLightSnare();
     void addLightKick();
+    void addLightHighhat();
     void removeLight() override;
     
   private:

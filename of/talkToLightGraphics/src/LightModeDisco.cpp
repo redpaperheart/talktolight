@@ -43,11 +43,14 @@ void LightModeDisco::update()
 
 void LightModeDisco::visualizeAudio(){
     
-    if(mCircles.size() < 15){
+    if(mCircles.size() < 30){
         if(mModel->mBeat.snare()>.9){
             addLightSnare();
         }
         if(mModel->mBeat.kick()>.9){
+            addLightKick();
+        }
+        if(mModel->mBeat.hihat()>.9){
             addLightKick();
         }
     }
@@ -80,8 +83,6 @@ void LightModeDisco::animateIn()
 {
     // initialize anything mode specific here.
     cout << "LightModeDisco::animateIn" << endl;
-//    removeColors();
-//    mAssistantLightRef->animateRadius(0);
     mCurState = STATE_IN;
 }
 
@@ -95,27 +96,18 @@ void LightModeDisco::animateOut(float duration)
 void LightModeDisco::setQuestionState()
 {
     cout << "LightModeDisco::setQuestionState" << endl;
-    //float rad = (mAssistantLightRef->mRadius < mRadiusOrig*mScale)? mRadiusOrig*mScale : mAssistantLightRef->mRadius;
     float rad = mRadiusOrig * mScale;
-    
-//    mAssistantLightRef->onAnimationComplete( [this, rad](){
-//        mAssistantLightRef->animateRadius(rad, 0.5f, 0.0f, EASE_IN_OUT_QUAD);
-//    } );
-//    mAssistantLightRef->animateRadius(rad * 1.2, 0.5f, 0.0f, EASE_IN_OUT_QUAD);
     isWaitingForResponse = true;
 }
 
 void LightModeDisco::setResponseState()
 {
-//    mAssistantLightRef->setSoundReactiveness(true);
     isWaitingForResponse = false;
 }
 
 void LightModeDisco::setNormalState()
 {
     cout << "LightModeDisco::setNormalState" << endl;
-//    mAssistantLightRef->setSoundReactiveness(false);
-//    mAssistantLightRef->animateRadius(0, 0.5f, 0.0f, EASE_IN_OUT_QUAD);
 }
 
 
@@ -163,21 +155,18 @@ void LightModeDisco::addLightIdle(){
 }
 
 void LightModeDisco::addLightSnare(){
-    float r = ofMap( mModel->mVolScaled, 0, 0.3, 10.0, 40.0) * mScale;
-    auto c = addLightRadius(r, 0.5 * ofRandom(ofGetWindowHeight() - 50), .1, 1, ofRandom(1.0f) > 0.25f);
-//    c->setColor(ofColor::yellow);
+    float r = ofMap( mModel->mVolCur * mModel->discoVolumeScaler * mModel->volumeScaler, 0, 0.3, 10.0, 40.0) * mScale;
+    auto c = addLightRadius(r, 0.5 * ofRandom(ofGetWindowHeight() - 50), .1, .8, ofRandom(1.0f) > 0.25f);
 }
 
 void LightModeDisco::addLightKick(){
-    float r = ofMap( mModel->mVolScaled, 0, 0.3, 10.0, 40.0) * mScale * 2;
-    auto c = addLightRadius(r, 0.5 * ofRandom(ofGetWindowHeight() - 50), .1, 1, ofRandom(1.0f) > 0.25f);
-//    c->setColor(ofColor::red);
+    float r = ofMap( mModel->mVolCur * mModel->discoVolumeScaler * mModel->volumeScaler, 0, 0.3, 40.0, 50.0) * mScale * 2;
+    auto c = addLightRadius(r, 0.5 * ofRandom(ofGetWindowHeight() - 50), .1, .5, ofRandom(1.0f) > 0.25f);
 }
-
-//void LightModeDisco::addLightIdle(float radius)
-//{
-//
-//}
+void LightModeDisco::addLightHighhat(){
+    float r = ofMap( mModel->mVolCur * mModel->discoVolumeScaler * mModel->volumeScaler, 0, 0.3, 5.0, 20.0) * mScale;
+    auto c = addLightRadius(r, 150 + 0.5 * ofRandom(ofGetWindowHeight() - 350), .1, .3, ofRandom(1.0f) > 0.25f);
+}
 
 void LightModeDisco::removeLight()
 {
