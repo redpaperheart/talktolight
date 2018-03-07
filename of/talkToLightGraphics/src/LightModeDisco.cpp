@@ -42,11 +42,14 @@ void LightModeDisco::update()
 }
 
 void LightModeDisco::visualizeAudio(){
-    if(mModel->mBeat.snare()>.9){
-        addLightSnare();
-    }
-    if(mModel->mBeat.kick()>.9){
-        addLightKick();
+    
+    if(mCircles.size() < 15){
+        if(mModel->mBeat.snare()>.9){
+            addLightSnare();
+        }
+        if(mModel->mBeat.kick()>.9){
+            addLightKick();
+        }
     }
 }
 

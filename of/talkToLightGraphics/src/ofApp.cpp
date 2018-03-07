@@ -58,6 +58,7 @@ void ofApp::setup()
     setupAudio(audioChannelDefault);
     
     mLight.setup();
+    changeToRandomMode();
 	
 }
 void ofApp::loadSettings(){

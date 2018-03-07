@@ -45,6 +45,9 @@ void LightModeRobot::update(){
     //DS: only update as long as this mode is still active
     if(mCurState == STATE_OUT) return;
     
+    //also don't update if state is going out
+    if(mCurState == STATE_OUT_START) return;
+    
     bigEye.update();
     littleEye.update();
     
@@ -91,6 +94,8 @@ void LightModeRobot::visualizeAudio(){
 void LightModeRobot::draw(){
     //DS: only draw as long as this mode is still active
     if(mCurState == STATE_OUT) return;
+    
+    
     //draw eye
 //    ofEnableBlendMode(OF_BLENDMODE_ADD);
     ofPushStyle();

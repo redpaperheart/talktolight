@@ -49,6 +49,9 @@ void LightModeRainbow::update()
 {
     //DS: only update as long as this mode is still active
     if (mCurState == STATE_OUT) return;
+    
+    //also don't update if state is going out
+    if(mCurState == STATE_OUT_START) return;
 
     LightMode::update();
 

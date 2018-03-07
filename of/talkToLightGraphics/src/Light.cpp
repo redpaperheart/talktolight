@@ -82,11 +82,11 @@ void Light::setup()
     mModes.push_back(mModeGoodNight);
     
     //start on a random mode
-    if(startMode==Model::MODE_NONE){
-        setMode(Model::MODE_SPOTLIGHT);
-    }else{
-        setMode(startMode);
-    }
+//    if(startMode==Model::MODE_NONE){
+//        setMode(Model::MODE_SPOTLIGHT);
+//    }else{
+//        setMode(startMode);
+//    }
 }
 
 
@@ -187,8 +187,6 @@ void Light::setMode(Model::Mode mode)
     }
 //    mModeCurrent->animateIn();
     mModeCurrent->animateInWithDelay(1);
-//    mModeCurrent->onDelayComplete(0);
-//    changeState(Model::STATE_NORMAL);
     mModel->mCurMode = mode;
     
 }
