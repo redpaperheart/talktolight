@@ -91,8 +91,8 @@ class ofApp : public ofBaseApp{
     string playListName = "DiscoBall"; //name of the iTunes playlist
     float musicStartTime = 0; //when the music started
     float playDuration = 30000; //in ms
-    int maxVolume = 7; //in ms
-    int lowVolume = 2; //in ms
+    int maxVolume = 7; //in 7 is highest on mac
+    int lowVolume = 2;
     bool isPlaying = false;
     
     std::shared_ptr<ofTrueTypeFont> notoRegular;

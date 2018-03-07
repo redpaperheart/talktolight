@@ -59,6 +59,7 @@ void ofApp::loadSettings(){
         //create them
         ofxXmlSettings settings;
         settings.setValue("settings:maxVolumeLevel", 7);
+        settings.setValue("settings:lowVolumeLevel", 2);
         settings.setValue("settings:assetPath", "../../assets/");
         settings.setValue("settings:playListName", "DiscoBall");
         settings.setValue("settings:playDuration", 3000);
@@ -70,6 +71,7 @@ void ofApp::loadSettings(){
     
     //then use the settings
     maxVolume = settings.getValue("settings:maxVolumeLevel", 7);
+    lowVolume = settings.getValue("settings:lowVolumeLevel", 2);
     playListName = settings.getValue("settings:playListName", "DiscoBall");
     playDuration = settings.getValue("settings:playDuration", 3000);
     assetPath = settings.getValue("settings:assetPath", "../../assets/");
