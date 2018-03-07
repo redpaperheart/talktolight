@@ -88,6 +88,10 @@ void ofApp::loadSettings(){
         settings.setValue("settings:idleTimeout", 60000);
         settings.setValue("settings:volumeScaler", 1.0);
         settings.saveFile("settings.xml");
+        
+        settings.setValue("settings:discoVolumeScaler", 25);
+        settings.setValue("settings:rainbowVolumeScaler", .3);
+        settings.setValue("settings:fireflyVolumeScaler", .1);
     }
     
     //then use the settings
@@ -97,6 +101,9 @@ void ofApp::loadSettings(){
     mModel->musicControlIP = settings.getValue("settings:musicControlIP", "192.168.0.61");
     mModel->menuControlIP = settings.getValue("settings:menuControlIP", "192.168.0.60");
     mModel->volumeScaler = settings.getValue("settings:volumeScaler", 1.0);
+    mModel->discoVolumeScaler = settings.getValue("settings:discoVolumeScaler", 25);
+    mModel->rainbowVolumeScaler = settings.getValue("settings:rainbowVolumeScaler", .3);
+    mModel->fireflyVolumeScaler = settings.getValue("settings:fireflyVolumeScaler", .1);
     mModel->bDebug = mDebug;
     mModel->idleTimeout = settings.getValue("settings:idleTimeout", 60000);
     if(settings.getValue("settings:launchFullscreen", false)){

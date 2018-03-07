@@ -56,8 +56,8 @@ void LightModeRainbow::update()
     LightMode::update();
 
     // save smoothed audio history
-    float vol = mIsResponse ? mModel->mVolCur : 0.0f;
-    float volScaled = ofMap(vol, 0.0, 0.02 * mModel->volumeScaler, 0.0, 0.92, true);
+    float vol = mIsResponse ? mModel->mVolCur * mModel->rainbowVolumeScaler * mModel->volumeScaler: 0.0f;
+    float volScaled = ofMap(vol, 0.0, 0.02, 0.0, 0.92, true);
     float prev = mSoundHistory.empty() ? 0 : mSoundHistory.front();
     float smth = ofLerp(prev, volScaled, (volScaled - prev) > 0.0 ? 0.5 : 0.1);
     
