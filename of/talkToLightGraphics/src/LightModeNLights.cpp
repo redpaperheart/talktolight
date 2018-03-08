@@ -57,9 +57,6 @@ void LightModeNLights::onResponse(float* arg)
 void LightModeNLights::update(){
        //DS: only update as long as this mode is still active
     if(mCurState == STATE_OUT) return;
-    
-    //also don't update if state is going out
-    if(mCurState == STATE_OUT_START) return;
      
      mSin1+=.01;
      mAudio_1 = abs(sin(mSin1) * .15);

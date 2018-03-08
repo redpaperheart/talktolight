@@ -1,0 +1,241 @@
+{
+  "manifest": {
+    "displayName": "SendOSC",
+    "invocationName": "SendOSC",
+    "category": "PRODUCTIVITY"
+  },
+  "actions": [{
+    "name": "actions.devices",
+    "config": {
+      "@type": "type.googleapis.com/google.actions.v2.devices.DeviceControl",
+      "commands": [
+        {
+        "intent": {
+          "name": "Osc",
+          "parameters": [{
+            "name": "number",
+            "type": "SchemaOrg_Number"
+          }],
+          "trigger": {
+            "queryPatterns": [
+              "Send signal $SchemaOrg_Number:number"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Sending OSC signal"
+          },
+          "requiredTraits": ["Osc"]
+        },
+		{
+        "intent": {
+          "name": "catMode",
+          "trigger": {
+            "queryPatterns": [
+              "cat mode",
+              "laser mode",
+              "talk like a laser",
+              "talk like a laser pointer"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to cat mode"
+          },
+          "requiredTraits": ["catMode"]
+        },
+        {
+        "intent": {
+          "name": "discoMode",
+          "trigger": {
+            "queryPatterns": [
+              "disco mode",
+              "talk like a disco ball"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to disco mode"
+          },
+          "requiredTraits": ["discoMode"]
+        },
+        {
+        "intent": {
+          "name": "robotMode",
+          "trigger": {
+            "queryPatterns": [
+              "robot mode",
+              "talk like a robot",
+              "talk like an evil robot"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to robot mode"
+          },
+          "requiredTraits": ["robotMode"]
+        },
+        {
+        "intent": {
+          "name": "scannerMode",
+          "trigger": {
+            "queryPatterns": [
+              "scanner mode",
+              "talk like a scanner"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to scanner mode"
+          },
+          "requiredTraits": ["scannerMode"]
+        },
+        {
+        "intent": {
+          "name": "spotlightMode",
+          "trigger": {
+            "queryPatterns": [
+              "spotlight mode",
+              "talk like a spotlight"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to spotlight mode"
+          },
+          "requiredTraits": ["spotlightMode"]
+        },
+        {
+        "intent": {
+          "name": "spaceshipMode",
+          "trigger": {
+            "queryPatterns": [
+              "spaceship mode",
+              "talk like a spaceship",
+              "talk like a ufo"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to spaceship mode"
+          },
+          "requiredTraits": ["spaceshipMode"]
+        },
+        {
+        "intent": {
+          "name": "alienMode",
+          "trigger": {
+            "queryPatterns": [
+              "spaceship mode",
+              "talk like an alien",
+              "talk like ET"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to alien mode"
+          },
+          "requiredTraits": ["alienMode"]
+        },
+        {
+        "intent": {
+          "name": "fireflyMode",
+          "trigger": {
+            "queryPatterns": [
+              "firefly mode",
+              "talk like fireflies"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to fire fly mode"
+          },
+          "requiredTraits": ["fireflyMode"]
+        },
+        {
+        "intent": {
+          "name": "rainbowMode",
+          "trigger": {
+            "queryPatterns": [
+              "rainbow mode",
+              "talk like a rainbow"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to rainbow mode"
+          },
+          "requiredTraits": ["rainbowMode"]
+        },
+        {
+        "intent": {
+          "name": "auroraMode",
+          "trigger": {
+            "queryPatterns": [
+              "aurora mode",
+              "talk like the aurora borealis",
+              "talk like an aurora",
+              "talk like the northern lights"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to aurora mode"
+          },
+          "requiredTraits": ["auroraMode"]
+        },
+        {
+        "intent": {
+          "name": "kittMode",
+          "trigger": {
+            "queryPatterns": [
+              "kitt mode",
+              "kit mode",
+              "talk like a car",
+              "talk like knight rider",
+              "talk like night rider"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to kitt mode"
+          },
+          "requiredTraits": ["kittMode"]
+        },
+        {
+        "intent": {
+          "name": "lightMode",
+          "trigger": {
+            "queryPatterns": [
+              "light mode"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to light mode"
+          },
+          "requiredTraits": ["lightMode"]
+        },
+        {
+        "intent": {
+          "name": "goodnightMode",
+          "trigger": {
+            "queryPatterns": [
+              "good night",
+              "night night",
+              "sweet dreams",
+              "night mode",
+              "sleep mode",
+              "night light"
+              ]
+            }
+          },
+          "directResponseFulfillment": {
+            "ttsPattern": "Changing to good night mode"
+          },
+          "requiredTraits": ["goodnightMode"]
+        }
+	]
+      }
+  }]
+}

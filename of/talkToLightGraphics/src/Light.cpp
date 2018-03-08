@@ -40,11 +40,6 @@ void Light::setup()
 	mModeNLights = std::make_shared<LightModeNLights>();
     mModeNLights->setup( mAssistantLightRef );
 	mModes.push_back(mModeNLights);
-    
-    // create Robot mode
-    mModeRobot = std::make_shared<LightModeRobot>();
-    mModeRobot->setup( mAssistantLightRef );
-    mModes.push_back(mModeRobot);
 
 	// create Scanner mode
 	mModeScanner = std::make_shared<LightModeScanner>();
@@ -82,11 +77,11 @@ void Light::setup()
     mModes.push_back(mModeGoodNight);
     
     //start on a random mode
-    if(startMode==Model::MODE_NONE){
-        setMode(Model::MODE_SPOTLIGHT);
-    }else{
-        setMode(startMode);
-    }
+//    if(startMode==Model::MODE_NONE){
+//        setMode(Model::MODE_SPOTLIGHT);
+//    }else{
+//        setMode(startMode);
+//    }
 }
 
 
@@ -160,9 +155,6 @@ void Light::setMode(Model::Mode mode)
 		case Model::MODE_AURORA:
 			mModeCurrent = mModeNLights;
 			break;
-        case Model::MODE_ROBOT:
-            mModeCurrent = mModeRobot;
-            break;
 		case Model::MODE_SCANNER:
 			mModeCurrent = mModeScanner;
 			break;
@@ -187,8 +179,6 @@ void Light::setMode(Model::Mode mode)
     }
 //    mModeCurrent->animateIn();
     mModeCurrent->animateInWithDelay(1);
-//    mModeCurrent->onDelayComplete(0);
-//    changeState(Model::STATE_NORMAL);
     mModel->mCurMode = mode;
     
 }

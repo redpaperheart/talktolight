@@ -39,7 +39,6 @@ public:
         MODE_LIGHTS,
         MODE_DISCO,
         MODE_LASER,
-        MODE_ROBOT,
 		MODE_SCANNER,
         MODE_SPOTLIGHT,
         MODE_RAINBOW, 
@@ -65,6 +64,10 @@ public:
     bool isTransitioningStates();
     float volumeScaler = 1; //used for adjusting volume sensitivity
     
+    float discoVolumeScaler=1;
+    float rainbowVolumeScaler=1;
+    float fireflyVolumeScaler=1;
+    
     int idleTimeout = 60000; //millis
     int idleTimer = 10000;
     void resetIdleTimer(){
@@ -73,6 +76,7 @@ public:
     //OSC control
     string musicControlIP = "192.168.0.61";
     string menuControlIP = "192.168.0.60";
+    string statusMonitorIP = "10.21.5.80";
     
     
     // audio in
@@ -109,6 +113,9 @@ public:
 //    float   mModeChangeTime = 0;
     
     //float discoSensitivity = 0.0175;
+//    void Output(string str){
+//        cout << str << endl;
+//    }
     
 private:
     // Singleton

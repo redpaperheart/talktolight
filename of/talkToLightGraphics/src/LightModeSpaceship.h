@@ -27,7 +27,7 @@ public:
     void setResponseState() override;
     void setNormalState() override;
     
-	void reloadShaders();  //hitting spacebar reloads shaders, no need to recompile solution
+    void reloadShaders() override;  //hitting spacebar reloads shaders, no need to recompile solution
 
 	//functions for different states
 	void onIdle();
@@ -44,8 +44,6 @@ private:
 	bool mBorder;
 	bool mQuestion = false;
 	int mQuestionBar = 1;
-
-	ofShader mBoxShader;
 
 	bool alphaTrigger = false;
 	bool mStateBegin = true;
