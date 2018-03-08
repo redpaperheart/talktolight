@@ -6,7 +6,6 @@ void ofApp::setup(){
     setupOsc();
     setupAMPM();
     
-
     if(!musicControl){
         setupViews();
     }else{
@@ -14,6 +13,7 @@ void ofApp::setup(){
         setVolume(currentVolume);
         //start the playlist playing
         startPlaylist();
+//        setupSFX();
     }
     
     ofSetVerticalSync(true);
@@ -82,6 +82,13 @@ void ofApp::loadSettings(){
         
     }
 }
+void ofApp::setupSFX(){
+    sfx1.load(assetPath + "cartoon024.mp3");
+}
+void ofApp::playSFX(ofSoundPlayer sfx){
+//    setVolume(maxVolume);
+//    sfx.play();
+}
 void ofApp::setupViews(){
     ofTrueTypeFont::setGlobalDpi(96);
     
@@ -108,7 +115,6 @@ void ofApp::setupViews(){
     menuText.popTag();
     menuText.popTag();
     lightMenu->show();
-    
     
     talkMenu = std::make_shared<MenuView>();
     talkMenu->font = notoRegular;
@@ -149,6 +155,7 @@ void ofApp::setMode(string oscId){
             musicPlay();
         }else{
             musicStop();
+//            playSFX(sfx1);
         }
     }else{
         lightMenu->activateMode(oscId);
@@ -208,6 +215,7 @@ void ofApp::update(){
             currentVolume = targetVolume;
         }
         currentVolume += (targetVolume-currentVolume)*.2f;
+//        setItunesVolume(currentVolume);
         setVolume(currentVolume);
     }
     //check if the music should timeout
@@ -311,6 +319,10 @@ void ofApp::nextTrack(){
 void ofApp::prevTrack(){
     appleScriptCmd("tell app \"iTunes\" to play previous track");
 }
+void ofApp::setItunesVolume(float vol){
+    appleScriptCmd("tell app \"iTunes\" to set the sound volume to " + ofToString(vol) );
+}
+//set the sound volume to 40
 void ofApp::startPlaylist(){
     appleScriptCmd("tell application \"iTunes\" to play playlist \""+playListName+"\"");
 }

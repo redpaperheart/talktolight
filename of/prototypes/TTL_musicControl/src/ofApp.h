@@ -46,6 +46,10 @@ class ofApp : public ofBaseApp{
     ofxXmlSettings settings;
     ofxXmlSettings menuText;
     
+    ofSoundPlayer sfx1;
+    void setupSFX();
+    void playSFX(ofSoundPlayer sfx);
+    
     void setupViews();
 
     void keyPressed(int key);
@@ -94,6 +98,7 @@ class ofApp : public ofBaseApp{
     int maxVolume = 7; //in 7 is highest on mac
     int lowVolume = 2;
     bool isPlaying = false;
+    void setItunesVolume(float vol);
     
     std::shared_ptr<ofTrueTypeFont> notoRegular;
     
