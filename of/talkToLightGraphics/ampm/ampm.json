@@ -16,7 +16,7 @@
 		"logging":{
 			"file":{
 				"enabled":true,
-				"filename":"logs/talkToLightGraphics"
+				"filename": "logs/server"
 			},
 			"google":{
 				"enabled":false
@@ -25,6 +25,9 @@
 				"enabled":false
 			},
 			"loggly":{
+				"enabled":false
+			},
+			"screenshots":{
 				"enabled":false
 			}
 		}
