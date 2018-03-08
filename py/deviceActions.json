@@ -198,8 +198,10 @@
         "name": "auroraMode",
         "trigger": {
           "queryPatterns": [
-           "rainbow mode",
-           "talk like a rainbow"
+           "aurora mode",
+           "talk like the northern lights",
+           "talk like an aurora",
+           "talk like an aurora borealis"
           ]
         }
       },
@@ -216,7 +218,7 @@
             "items": [
               {
                 "simpleResponse": {
-                  "textToSpeech": "Enjoy the northern lights"
+                  "textToSpeech": "Let's go up North"
                 }
               },
               {
@@ -310,7 +312,7 @@
         "name": "alienMode",
         "trigger": {
           "queryPatterns": [
-           "spaceship mode",
+           "alien mode",
            "talk like an alien",
            "talk like ET"
           ]
@@ -345,7 +347,7 @@
     {
       "name": "goodnightMode",
       "intent": {
-        "name": "alienMode",
+        "name": "goodnightMode",
         "trigger": {
           "queryPatterns": [
            "good night",
