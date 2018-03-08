@@ -13,8 +13,11 @@
           "queryPatterns": [
             "cat mode",
             "laser mode",
+            "give me a laser pointer",
+            "give me laser",
             "talk like a laser",
-            "talk like a laser pointer"
+            "talk like a laser pointer",
+            "show me a laserpointer"
           ]
         }
       },
@@ -51,6 +54,7 @@
         "trigger": {
           "queryPatterns": [
            "disco mode",
+           "show me a disco ball",
            "talk like a disco ball"
           ]
         }
@@ -68,7 +72,7 @@
             "items": [
               {
                 "simpleResponse": {
-                  "textToSpeech": "Time to disco"
+                  "textToSpeech": "Let's Dance!"
                 }
               },
               {
@@ -88,6 +92,9 @@
         "trigger": {
           "queryPatterns": [
            "spotlight mode",
+           "show me a spotlight",
+           "give me a spotlight",
+           "give me the spotlight",
            "talk like a spotlight"
           ]
         }
@@ -105,7 +112,7 @@
             "items": [
               {
                 "simpleResponse": {
-                  "textToSpeech": "Turning on spotlight"
+                  "textToSpeech": "Ok, now you have the spotlight!"
                 }
               },
               {
@@ -125,7 +132,12 @@
         "trigger": {
           "queryPatterns": [
            "firefly mode",
-           "talk like fireflies"
+           "talk like fireflies",
+           "talk like a firefly",
+           "talk like a fire fly",
+           "show me fireflies",
+           "I've never seen fireflies",
+           "I've never seen a firefly"
           ]
         }
       },
@@ -162,6 +174,7 @@
         "trigger": {
           "queryPatterns": [
            "rainbow mode",
+           "show me a rainbow",
            "talk like a rainbow"
           ]
         }
@@ -199,7 +212,9 @@
         "trigger": {
           "queryPatterns": [
            "aurora mode",
+           "show me the northern lights",
            "talk like the northern lights",
+           "show me the northern lights",
            "talk like an aurora",
            "talk like an aurora borealis"
           ]
@@ -238,7 +253,10 @@
         "trigger": {
           "queryPatterns": [
            "scanner mode",
-           "talk like a scanner"
+           "show me a scanner",
+           "talk like a scanner",
+           "scan the room",
+           "scan me"
           ]
         }
       },
@@ -275,8 +293,10 @@
         "trigger": {
           "queryPatterns": [
            "spaceship mode",
+           "show me a spaceship",
            "talk like a spaceship",
-           "talk like a ufo"
+           "talk like a ufo",
+           "show me a ufo"
           ]
         }
       },
@@ -293,7 +313,7 @@
             "items": [
               {
                 "simpleResponse": {
-                  "textToSpeech": "You are about to enter a spaceship"
+                  "textToSpeech": "Ok, get ready to enter outer space"
                 }
               },
               {
@@ -314,7 +334,9 @@
           "queryPatterns": [
            "alien mode",
            "talk like an alien",
-           "talk like ET"
+           "show me an alien",
+           "talk like ET",
+           "turn into an alien"
           ]
         }
       },
