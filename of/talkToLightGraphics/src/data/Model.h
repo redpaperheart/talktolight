@@ -39,7 +39,6 @@ public:
         MODE_LIGHTS,
         MODE_DISCO,
         MODE_LASER,
-        MODE_ROBOT,
 		MODE_SCANNER,
         MODE_SPOTLIGHT,
         MODE_RAINBOW, 

@@ -1,241 +1,411 @@
 {
   "manifest": {
-    "displayName": "SendOSC",
-    "invocationName": "SendOSC",
+    "displayName": "Talk to Light",
+    "invocationName": "Talk to Light",
     "category": "PRODUCTIVITY"
   },
-  "actions": [{
-    "name": "actions.devices",
-    "config": {
-      "@type": "type.googleapis.com/google.actions.v2.devices.DeviceControl",
-      "commands": [
-        {
-        "intent": {
-          "name": "Osc",
-          "parameters": [{
-            "name": "number",
-            "type": "SchemaOrg_Number"
-          }],
-          "trigger": {
-            "queryPatterns": [
-              "Send signal $SchemaOrg_Number:number"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Sending OSC signal"
-          },
-          "requiredTraits": ["Osc"]
-        },
-		{
-        "intent": {
-          "name": "catMode",
-          "trigger": {
-            "queryPatterns": [
-              "cat mode",
-              "laser mode",
-              "talk like a laser",
-              "talk like a laser pointer"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to cat mode"
-          },
-          "requiredTraits": ["catMode"]
-        },
-        {
-        "intent": {
-          "name": "discoMode",
-          "trigger": {
-            "queryPatterns": [
-              "disco mode",
-              "talk like a disco ball"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to disco mode"
-          },
-          "requiredTraits": ["discoMode"]
-        },
-        {
-        "intent": {
-          "name": "robotMode",
-          "trigger": {
-            "queryPatterns": [
-              "robot mode",
-              "talk like a robot",
-              "talk like an evil robot"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to robot mode"
-          },
-          "requiredTraits": ["robotMode"]
-        },
-        {
-        "intent": {
-          "name": "scannerMode",
-          "trigger": {
-            "queryPatterns": [
-              "scanner mode",
-              "talk like a scanner"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to scanner mode"
-          },
-          "requiredTraits": ["scannerMode"]
-        },
-        {
-        "intent": {
-          "name": "spotlightMode",
-          "trigger": {
-            "queryPatterns": [
-              "spotlight mode",
-              "talk like a spotlight"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to spotlight mode"
-          },
-          "requiredTraits": ["spotlightMode"]
-        },
-        {
-        "intent": {
-          "name": "spaceshipMode",
-          "trigger": {
-            "queryPatterns": [
-              "spaceship mode",
-              "talk like a spaceship",
-              "talk like a ufo"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to spaceship mode"
-          },
-          "requiredTraits": ["spaceshipMode"]
-        },
-        {
-        "intent": {
-          "name": "alienMode",
-          "trigger": {
-            "queryPatterns": [
-              "spaceship mode",
-              "talk like an alien",
-              "talk like ET"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to alien mode"
-          },
-          "requiredTraits": ["alienMode"]
-        },
-        {
-        "intent": {
-          "name": "fireflyMode",
-          "trigger": {
-            "queryPatterns": [
-              "firefly mode",
-              "talk like fireflies"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to fire fly mode"
-          },
-          "requiredTraits": ["fireflyMode"]
-        },
-        {
-        "intent": {
-          "name": "rainbowMode",
-          "trigger": {
-            "queryPatterns": [
-              "rainbow mode",
-              "talk like a rainbow"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to rainbow mode"
-          },
-          "requiredTraits": ["rainbowMode"]
-        },
-        {
-        "intent": {
-          "name": "auroraMode",
-          "trigger": {
-            "queryPatterns": [
-              "aurora mode",
-              "talk like the aurora borealis",
-              "talk like an aurora",
-              "talk like the northern lights"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to aurora mode"
-          },
-          "requiredTraits": ["auroraMode"]
-        },
-        {
-        "intent": {
-          "name": "kittMode",
-          "trigger": {
-            "queryPatterns": [
-              "kitt mode",
-              "kit mode",
-              "talk like a car",
-              "talk like knight rider",
-              "talk like night rider"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to kitt mode"
-          },
-          "requiredTraits": ["kittMode"]
-        },
-        {
-        "intent": {
-          "name": "lightMode",
-          "trigger": {
-            "queryPatterns": [
-              "light mode"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to light mode"
-          },
-          "requiredTraits": ["lightMode"]
-        },
-        {
-        "intent": {
-          "name": "goodnightMode",
-          "trigger": {
-            "queryPatterns": [
-              "good night",
-              "night night",
-              "sweet dreams",
-              "night mode",
-              "sleep mode",
-              "night light"
-              ]
-            }
-          },
-          "directResponseFulfillment": {
-            "ttsPattern": "Changing to good night mode"
-          },
-          "requiredTraits": ["goodnightMode"]
+  "actions": [
+    {
+      "name": "catMode",
+      "intent": {
+        "name": "catMode",
+        "trigger": {
+          "queryPatterns": [
+            "cat mode",
+            "laser mode",
+            "give me a laser pointer",
+            "give me laser",
+            "talk like a laser",
+            "talk like a laser pointer",
+            "show me a laserpointer"
+          ]
         }
-	]
+      },
+      "availability": {
+        "deviceClasses": [
+          {
+            "assistantSdkDevice": {}
+          }
+        ]
+      },
+      "fulfillment": {
+        "staticFulfillment": {
+          "templatedResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "laser coming up"
+                }
+              },
+              {
+                "deviceExecution": {
+                  "command": "catMode"
+                }
+              }
+            ]
+          }
+        }
       }
-  }]
+    },
+    {
+      "name": "discoMode",
+      "intent": {
+        "name": "discoMode",
+        "trigger": {
+          "queryPatterns": [
+           "disco mode",
+           "show me a disco ball",
+           "talk like a disco ball"
+          ]
+        }
+      },
+      "availability": {
+        "deviceClasses": [
+          {
+            "assistantSdkDevice": {}
+          }
+        ]
+      },
+      "fulfillment": {
+        "staticFulfillment": {
+          "templatedResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "Let's Dance!"
+                }
+              },
+              {
+                "deviceExecution": {
+                  "command": "discoMode"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "spotlightMode",
+      "intent": {
+        "name": "spotlightMode",
+        "trigger": {
+          "queryPatterns": [
+           "spotlight mode",
+           "show me a spot light",
+           "give me a spot light",
+           "give me the spot light",
+           "talk like a spot light"
+          ]
+        }
+      },
+      "availability": {
+        "deviceClasses": [
+          {
+            "assistantSdkDevice": {}
+          }
+        ]
+      },
+      "fulfillment": {
+        "staticFulfillment": {
+          "templatedResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "Ok, now you have the spotlight!"
+                }
+              },
+              {
+                "deviceExecution": {
+                  "command": "spotlightMode"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "fireflyMode",
+      "intent": {
+        "name": "fireflyMode",
+        "trigger": {
+          "queryPatterns": [
+           "firefly mode",
+           "talk like fireflies",
+           "talk like a firefly",
+           "talk like a fire fly",
+           "show me fireflies",
+           "I've never seen fireflies",
+           "I've never seen a firefly"
+          ]
+        }
+      },
+      "availability": {
+        "deviceClasses": [
+          {
+            "assistantSdkDevice": {}
+          }
+        ]
+      },
+      "fulfillment": {
+        "staticFulfillment": {
+          "templatedResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "The fireflies are on their way"
+                }
+              },
+              {
+                "deviceExecution": {
+                  "command": "fireflyMode"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "rainbowMode",
+      "intent": {
+        "name": "rainbowMode",
+        "trigger": {
+          "queryPatterns": [
+           "rainbow mode",
+           "show me a rainbow",
+           "talk like a rainbow"
+          ]
+        }
+      },
+      "availability": {
+        "deviceClasses": [
+          {
+            "assistantSdkDevice": {}
+          }
+        ]
+      },
+      "fulfillment": {
+        "staticFulfillment": {
+          "templatedResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "Enjoy the rainbow"
+                }
+              },
+              {
+                "deviceExecution": {
+                  "command": "rainbowMode"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "auroraMode",
+      "intent": {
+        "name": "auroraMode",
+        "trigger": {
+          "queryPatterns": [
+           "aurora mode",
+           "show me the northern lights",
+           "talk like the northern lights",
+           "show me the northern lights",
+           "talk like an aurora",
+           "talk like an aurora borealis"
+          ]
+        }
+      },
+      "availability": {
+        "deviceClasses": [
+          {
+            "assistantSdkDevice": {}
+          }
+        ]
+      },
+      "fulfillment": {
+        "staticFulfillment": {
+          "templatedResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "Let's go up North"
+                }
+              },
+              {
+                "deviceExecution": {
+                  "command": "auroraMode"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "scannerMode",
+      "intent": {
+        "name": "scannerMode",
+        "trigger": {
+          "queryPatterns": [
+           "scanner mode",
+           "show me a scanner",
+           "talk like a scanner",
+           "scan the room",
+           "scan me"
+          ]
+        }
+      },
+      "availability": {
+        "deviceClasses": [
+          {
+            "assistantSdkDevice": {}
+          }
+        ]
+      },
+      "fulfillment": {
+        "staticFulfillment": {
+          "templatedResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "Get ready to be scanned"
+                }
+              },
+              {
+                "deviceExecution": {
+                  "command": "scannerMode"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "spaceshipMode",
+      "intent": {
+        "name": "spaceshipMode",
+        "trigger": {
+          "queryPatterns": [
+           "spaceship mode",
+           "show me a spaceship",
+           "talk like a spaceship",
+           "talk like a ufo",
+           "show me a ufo"
+          ]
+        }
+      },
+      "availability": {
+        "deviceClasses": [
+          {
+            "assistantSdkDevice": {}
+          }
+        ]
+      },
+      "fulfillment": {
+        "staticFulfillment": {
+          "templatedResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "Ok, get ready to enter outer space"
+                }
+              },
+              {
+                "deviceExecution": {
+                  "command": "spaceshipMode"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "alienMode",
+      "intent": {
+        "name": "alienMode",
+        "trigger": {
+          "queryPatterns": [
+           "alien mode",
+           "talk like an alien",
+           "show me an alien",
+           "talk like ET",
+           "turn into an alien"
+          ]
+        }
+      },
+      "availability": {
+        "deviceClasses": [
+          {
+            "assistantSdkDevice": {}
+          }
+        ]
+      },
+      "fulfillment": {
+        "staticFulfillment": {
+          "templatedResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "Get ready to talk to an alien"
+                }
+              },
+              {
+                "deviceExecution": {
+                  "command": "alienMode"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "goodnightMode",
+      "intent": {
+        "name": "goodnightMode",
+        "trigger": {
+          "queryPatterns": [
+           "good night",
+           "night night",
+           "sweet dreams",
+           "night mode",
+           "sleep mode",
+           "night light"
+          ]
+        }
+      },
+      "availability": {
+        "deviceClasses": [
+          {
+            "assistantSdkDevice": {}
+          }
+        ]
+      },
+      "fulfillment": {
+        "staticFulfillment": {
+          "templatedResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "Good Night"
+                }
+              },
+              {
+                "deviceExecution": {
+                  "command": "goodnightMode"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
 }
