@@ -1,0 +1,32 @@
+{
+	"default":{
+		"persistence": {
+			"launchCommand": "../bin/talkToLightGraphics",
+			"maxMemory":0,
+			"startupTimeout":30,
+			"heartbeatTimeout":5
+		},
+		"permissions":{
+			 "rph": {
+				"password": "rph",
+				"app": true,
+				"computer": true
+			}
+		},
+		"logging":{
+			"file":{
+				"enabled":true,
+				"filename":"logs/talkToLightGraphics"
+			},
+			"google":{
+				"enabled":false
+			},
+			"mail":{
+				"enabled":false
+			},
+			"loggly":{
+				"enabled":false
+			}
+		}
+	}
+}
