@@ -16,6 +16,8 @@ We were moved by the opportunity to translate this remarkable new reality of our
 
 So, we created [TalkToLight](http://redpaperheart.com/work/talktolight).
 
+Using the Google Assistant to to create a great experience was greatly improved by the stability of the SDK and the ease of adding device actions.  The SDK allowed us to create an installation where the actions were only limited by our imagination and what would create a great experience.
+
 ### Features:
 
 - Modular software design allows you to customize your light and add more modes
@@ -34,15 +36,13 @@ So, we created [TalkToLight](http://redpaperheart.com/work/talktolight).
   - fire flies.
 
 
-
 ## What You'll Need
 
 Besides a Raspberry Pi, Talk To Light can be build with different components and is fairly flexible in its set up. You do need at least one USB microphone (webcams work too), a speaker (USB, audio via HDMI or 3.5mm jack) and a projector. The Housing is optional but it makes it look much better. We built the housing around a specific projector and you might need to adjust the housing measurements if you use a different one.
 
-
 - **Estimated time to assemble:** 3h + time to build the housing
 - **Difficulty:** Beginner
-- **Cost:** Electronics $120 + projector $799 + housing material ~$100
+- **Cost:** Electronics ~$120 + projector ~$100 + housing material ~$100
 
 
 ### Essentials - the tech
@@ -71,7 +71,7 @@ We used precisely laser cut acrylic but you could also build a housing any other
 
 ### Set Up Hardware and Network Access
 - Connect the microphones and the speaker to the Raspberry Pi
-- Insert the SD card into the Raspberry Pi ([raspbian-2017-07-05](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) already loaded)
+- Insert the SD card into the Raspberry Pi ([NOOBS](https://www.raspberrypi.org/downloads/noobs/) pre-installed)
 - Connect a USB keyboard, USB mouse and display to your Raspberry Pi
 - Plug in an ethernet cable or [connect to a WiFi network](https://www.raspberrypi.org/documentation/configuration/wireless/desktop.md).
 - Start up the Raspberry Pi
@@ -87,7 +87,7 @@ An incorrect date or time may cause SSL errors. Restart the device to automatica
 
 ### Configure and Test the Audio
 
-Before running any applications that use the Google Assistant SDK, you must configure the audio system on the Raspberry Pi. (See also [Google Assistant SDK Guide : Configure and Test the Audio ](https://developers.google.com/assistant/sdk/guides/library/python/embed/audio ))
+Before running any applications that use the Google Assistant SDK, you must configure the audio system on the Raspberry Pi. (See also [Google Assistant SDK: Configure and Test the Audio ](https://developers.google.com/assistant/sdk/guides/library/python/embed/audio ))
 
 - On a terminal window, find your recording and playback devices.
 
@@ -148,8 +148,7 @@ Note: Sound setup might have to be repeated every time you restart the pi or if 
 
 ### Configure a Developer Project and Account Settings
 
-See also [Google Assistant SDK Guide:
-Configure a Developer Project and Account Settings](https://developers.google.com/assistant/sdk/guides/library/python/embed/config-dev-project-and-account)
+See also [Google Assistant SDK: Configure a Developer Project and Account Settings](https://developers.google.com/assistant/sdk/guides/library/python/embed/config-dev-project-and-account)
 
 #### Configure a Google Developer Project
 A Google Developer Project gives your device access to the Google Assistant API. The project tracks quota usage and gives you valuable metrics for the requests made from your device.
@@ -189,12 +188,12 @@ Ensure the following toggle switches are enabled (blue):
 
 
 ### Install the SDK and Sample Code
-See also [Google Assistant SDK : Install the SDK and Sample Code](https://developers.google.com/assistant/sdk/guides/library/python/embed/install-sample)
+See also [Google Assistant SDK: Install the SDK and Sample Code](https://developers.google.com/assistant/sdk/guides/library/python/embed/install-sample)
 
 To keep things separate and to easily find everything related to this project, we created a new project folder. We called this folder *"rph"* but you can of course pick any name of your choice.
 
-      mkdir rph
-      cd rph
+      pi:~ $ mkdir rph
+      pi:~ $ cd rph
 
 All following steps are executed within this folder.
 
@@ -245,13 +244,13 @@ Use pip to install the latest version of the Python package in the virtual envir
 
       If authorization was successful, you will see a response similar to the following:
 
-        credentials saved: /path/to/.config/google-oauthlib-tool/credentials.json
+        credentials saved: ~/.config/google-oauthlib-tool/credentials.json
 
       If instead you see InvalidGrantError, then an invalid code was entered. Try again, taking care to copy and paste the entire code.
 
 
 ### Register the Device Model
-See also [Google Assistant SDK : Register the Device Model](https://developers.google.com/assistant/sdk/guides/library/python/embed/register-device)
+See also [Google Assistant SDK: Register the Device Model](https://developers.google.com/assistant/sdk/guides/library/python/embed/register-device)
 
 In order for the Google Assistant to respond to commands appropriate to your device and the given context, the Assistant needs information about your particular device.
 
@@ -261,12 +260,11 @@ The sample code includes a registration tool for your convenience. Make sure you
 
 In the following command, replace `my-model` with whatever you want to call your model. Note that this name must be globally unique so you should use your Google Developer Project ID as a prefix to help avoid collisions (for example, my-dev-project-my-model-1. Also, don't be surprised that `talk-to-light-model-1` does not work as we already registered that.)
 
-    (env) pi:~/rph $ cd ..
-    (env) pi:~ $ googlesamples-assistant-devicetool register-model --model my-model --manufacturer "Red Paper Heart" --product-name "Talk to Light" --type LIGHT --trait Osc --trait catMode --trait discoMode --trait lightMode --trait spotlightMode --trait scannerMode --trait robotMode --trait spaceshipMode --trait alienMode --trait fireflyMode --trait rainbowMode --trait auroraMode --trait kittMode
+    (env) pi:~/rph $ googlesamples-assistant-devicetool register-model --model my-model --manufacturer "Red Paper Heart" --product-name "Talk to Light" --type LIGHT
 
 Now query the server for the model you just created.
 
-    (env) pi:~ $ googlesamples-assistant-devicetool get --model talk-to-light-model-1
+    (env) pi:~/rph $ googlesamples-assistant-devicetool get --model talk-to-light-model-1
 
 You can run the register command again and supply any (or all) of these arguments to update the model. See the device model JSON [reference](https://developers.google.com/assistant/sdk/reference/device-registration/model-and-instance-schemas.html#device_model_json) for more information.
 
@@ -274,19 +272,19 @@ You can run the register command again and supply any (or all) of these argument
 
 You can check all the device models created under your developer project at any time by using the command below:
 
-    (env) pi:~ $ googlesamples-assistant-devicetool list --model
+    (env) pi:~/rph $ googlesamples-assistant-devicetool list --model
 
 Note: To see the full list of commands for the registration tool, see the Registration Tool Help.
 
 
 ### Run the Sample Code (optional)
-See also [Google Assistant SDK : Run the Sample Code](https://developers.google.com/assistant/sdk/guides/library/python/embed/run-sample)
+See also [Google Assistant SDK: Run the Sample Code](https://developers.google.com/assistant/sdk/guides/library/python/embed/run-sample)
 
 At this point, you are ready to run the sample and make a query.
 
 In the following command, replace `my-dev-project` with your Google Developer Project ID. Replace `my-model` with the name of the model you created in the previous step.
 
-    (env) pi:~ $ googlesamples-assistant-hotword --project_id my-dev-project --device_model_id my-model
+    (env) pi:~/rph $ googlesamples-assistant-hotword --project_id my-dev-project --device_model_id my-model
 Say Ok Google or Hey Google, followed by your query. You can try some of the following:
 
 - Who am I?
@@ -295,22 +293,11 @@ Say Ok Google or Hey Google, followed by your query. You can try some of the fol
 
 If the Assistant does not respond, follow the [troubleshooting instructions](https://developers.google.com/assistant/sdk/guides/library/troubleshooting#hotword).
 
-#### Get the device instance ID
-When you run the sample, it will generate a device instance for your particular device. This device instance will be associated with the device model that you specified to run the sample. Find the device instance ID in the output for the sample. You will use this ID to update your device so you can use Device actions.
-
-    device_model_id: my-model
-    device_id: 1C3E1558B0023E49F71CA0D241DA03CF # Device instance ID
-    ON_MUTED_CHANGED:
-    {'is_muted': False}
-    ON_START_FINISHED
-    ...
-
 ---
 
 ## Set up all Talk To Light applications
 
 - Clone the repository and all submodules
-      (env) pi:~ $ cd rph
       (env) pi:~/rph $ git clone --recursive https://github.com/redpaperheart/talktolight
 
 - Install additional python libraries
@@ -319,11 +306,11 @@ When you run the sample, it will generate a device instance for your particular 
 
 ## Set up the Talk To Light Python App
 
-This python application uses the Google Assistant Library to connect to the Google Assistant. It uses the microphone and speaker that was defined in the .asoundrc file. The application will run in the background and all events are sent to the TalkToLight graphics app via OSC.
+This python application uses the Google Assistant Library to connect to the Google Assistant. It uses the microphone and speaker that was defined in the .asoundrc file. The application will run in the background and all events are sent to the TalkToLight graphics app via Open Sound Control (OSC) messages. OSC is a protocol for communication among applications and computers. (Learn more about OSC [here](http://opensoundcontrol.org/introduction-osc).)
 
 ### Register Custom Device Actions
 
-See also [ Google Assistant SDK : Register Custom Device Actions](https://developers.google.com/assistant/sdk/eap/device-actions/partner/library/custom-actions)
+See also [Google Assistant SDK: Register Custom Device Actions](https://developers.google.com/assistant/sdk/eap/device-actions/partner/library/custom-actions)
 
 #### Deploy the Talk To Light Action Package
 
@@ -333,24 +320,35 @@ See also [ Google Assistant SDK : Register Custom Device Actions](https://develo
 
 2. [Download](https://developers.google.com/actions/tools/gactions-cli) the `gactions` command line tool (Linux - arm).
 
-  Locate the downloaded gactions file in the downloads folder and move it to /home/pi/rph/
-  Run `chmod +x gactions` to make the downloaded binary executable.
+3. Locate the downloaded gactions file in the downloads folder and move it to /home/pi/rph/ and run `chmod +x gactions` to make the downloaded binary executable.
 
-3. Now make the Action Package accessible to the Google Assistant Server. Save your Action Package to Google by using the gactions CLI. Replace `my-project-id` with your Google Developer Project ID.
+        (env) pi:~/rph $ mv ~/downloads/gactions ~/rph
+        (env) pi:~/rph $ chmod +x gactions
+
+4. Now make the Action Package accessible to the Google Assistant Server. Save your Action Package to Google by using the gactions CLI. Replace `my-project-id` with your Google Developer Project ID.
+
         (env) pi:~/rph $ ./gactions update --action_package talktolight/py/deviceActions.json --project my-project-id
 Note: If you see the message Requested entity is not found, then you need to import your project in the Actions Console.
 
-4. The first time you run this command you will be given a URL and be asked to sign in. Copy the URL and paste it into a browser (this can be done on any machine). The page will ask you to sign in to your Google account. Sign into the Google account that created the developer project in a previous step.
+5. The first time you run this command you will be given a URL and be asked to sign in. Copy the URL and paste it into a browser (this can be done on any machine). The page will ask you to sign in to your Google account. Sign into the Google account that created the developer project in a previous step.
 
-5. After you approve the permission request from the API, a code will appear in your browser, such as "4/XXXX". Copy and paste this code into the terminal:
+6. After you approve the permission request from the API, a code will appear in your browser, such as "4/XXXX". Copy and paste this code into the terminal:
 
         Enter the authorization code:
   If authorization was successful, you will see a response similar to the following: `Your app for the Assistant for project my-devices-project was successfully updated with your actions.`
 
-6. Deploy your action package into test mode by using the gactions CLI. You must have saved your Action Package to Google at least once before running this command. Test mode enables the action package on your user account only.
+7. Deploy your action package into test mode by using the gactions CLI. You must have saved your Action Package to Google at least once before running this command. Test mode enables the action package on your user account only.
 
         (env) pi:~/rph $ ./gactions test --action_package talktolight/py/deviceActions.json --project my-project-id
 Note: Currently, you cannot test the project using the Actions Web Simulator.
+
+8. Now register your model with the traits from the action package. These traits correspond to the device actions.
+	
+		googlesamples-assistant-devicetool register-model --manufacturer "Red Paper Heart" --product-name "Talk To Light" --type LIGHT --trait goodnightMode --trait Osc --trait catMode --trait discoMode --trait lightMode --trait spotlightMode --trait scannerMode --trait spaceshipMode --trait alienMode --trait fireflyMode --trait rainbowMode --trait auroraMode --model my-model
+
+9. Now register your device with your Device Id. This is the same Device Id that was displayed when the hotword example was run.
+
+		googlesamples-assistant-devicetool register-device --client-type LIBRARY --model my-model --device my-device-id
 
 For more details on how to submit your Action Package for distribution, refer to the [Action Package reference documentation](https://developers.google.com/actions/distributing-your-apps).
 
@@ -358,7 +356,7 @@ For more details on how to submit your Action Package for distribution, refer to
 
 Open a new terminal. Replace `my-device-model-id` with your Device Model Id.
 
-      pi:~ $ python -m rph.talktolight.py.talktolight --device_model_id my-device-model-id
+      pi:~/rph $ python -m talktolight.py.talktolight --device_model_id my-device-model-id
 
 Say Ok Google or Hey Google, followed by your query. Also, try some of the following custom actions:
 - Talk like a spotlight.
@@ -393,13 +391,14 @@ If all custom device actions are registered correctly you should see outputs lik
         {'with_follow_on_turn': False}
       Sending OSC message: /assistant/response/end
 
+Note: If the audio is not setup at the beginning or if the network connection is not working when the app starts, the app needs to be relaunched. It will not dynamically detect new inputs or a new network connection. 
 
 ## Set up the Talk To Light ofx Graphics App
-The graphics application is build in [Open Frameworks](http://openframeworks.cc/) and receives all messages via OSC from the TalkToLight python app.
+The graphics application is built in [Open Frameworks](http://openframeworks.cc/) and receives all messages via OSC from the TalkToLight Python app.
 
 Install and compile OpenFrameworks following [this guide](http://openframeworks.cc/setup/raspberrypi/raspberry-pi-getting-started/). Make sure the OpenFrameworks folder sits at the same level as the repository folder, not inside of it.
 
-    $ sudo raspi-config
+    pi:~/rph $ sudo raspi-config
 
     1. Select 1 Expand Filesystem and hit Enter
     2. Select 8 Advanced Options and hit Enter
@@ -413,22 +412,21 @@ openFrameworks does not use the X11 Desktop for running OF applications. You can
 
 Download openFrameworks
 
-    $ cd rph
-    $ wget http://openframeworks.cc/versions/v0.9.8/of_v0.9.8_linuxarmv6l_release.tar.gz
-    $ mkdir openFrameworks
-    $ tar vxfz of_v0.9.8_linuxarmv6l_release.tar.gz -C openFrameworks --strip-components 1
+    pi:~/rph $ wget http://openframeworks.cc/versions/v0.9.8/of_v0.9.8_linuxarmv6l_release.tar.gz
+    pi:~/rph $ mkdir openFrameworks
+    pi:~/rph $ tar vxfz of_v0.9.8_linuxarmv6l_release.tar.gz -C openFrameworks --strip-components 1
 
 Install packages and compile openFrameworks:
 
-    $ cd /home/pi/rph/openFrameworks/scripts/linux/debian
-    $ sudo ./install_dependencies.sh
-    $ make Release -C /home/pi/openFrameworks/libs/openFrameworksCompiled/project
+    pi:~/rph $ cd /home/pi/rph/openFrameworks/scripts/linux/debian
+    pi:~/rph/openFrameworks/scripts/linux/debian $ sudo ./install_dependencies.sh
+    pi:~/rph/openFrameworks/scripts/linux/debian $ make Release -C /home/pi/rph/openFrameworks/libs/openFrameworksCompiled/project
 
 Compile and run the Talk to Light app:
 
-    $ cd rph/talktoLight/of/talkToLightGraphics
-    $ make
-    $ make run
+    pi:~ $ cd rph/talktoLight/of/talkToLightGraphics
+    pi:~/rph/talktoLight/of/talkToLightGraphics $ make
+    pi:~/rph/talktoLight/of/talkToLightGraphics $ make run
 
 Note: Compiling OpenFrameworks and the ofx Talk to Light application can take quite a bit of time.
 

@@ -77,6 +77,7 @@ public:
     //OSC control
     string musicControlIP = "192.168.0.61";
     string menuControlIP = "192.168.0.60";
+    string statusMonitorIP = "10.21.5.80";
     
     
     // audio in
@@ -113,6 +114,9 @@ public:
 //    float   mModeChangeTime = 0;
     
     //float discoSensitivity = 0.0175;
+//    void Output(string str){
+//        cout << str << endl;
+//    }
     
 private:
     // Singleton

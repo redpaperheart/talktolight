@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		060529EA204A416000E1D05A /* RobotEye.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 060529E8204A416000E1D05A /* RobotEye.cpp */; };
 		060529EF204B067400E1D05A /* ofxAMPMClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 060529EC204B067400E1D05A /* ofxAMPMClient.cpp */; };
 		060529F3204B073400E1D05A /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 060529F2204B073400E1D05A /* jsoncpp.cpp */; };
 		0619F1D12044DF3C008021D7 /* LightModeFirefly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0619F1D02044DF3C008021D7 /* LightModeFirefly.cpp */; };
@@ -29,7 +28,6 @@
 		20F51FA5203DF63B003D8E28 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20F51FA2203DF63B003D8E28 /* tinyxmlparser.cpp */; };
 		20F51FA6203DF63B003D8E28 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20F51FA3203DF63B003D8E28 /* tinyxml.cpp */; };
 		20F51FA7203DF63B003D8E28 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20F51FA4203DF63B003D8E28 /* tinyxmlerror.cpp */; };
-		20F51FAA203E0847003D8E28 /* LightModeRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20F51FA8203E0847003D8E28 /* LightModeRobot.cpp */; };
 		20F51FAD203F1F2D003D8E28 /* LightModeEt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20F51FAB203F1F2C003D8E28 /* LightModeEt.cpp */; };
 		20F51FB1203F47B7003D8E28 /* ETRing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20F51FAF203F47B7003D8E28 /* ETRing.cpp */; };
 		50C8B3E31F21029A00BA65AA /* LightCircleTrail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50C8B3E11F21029A00BA65AA /* LightCircleTrail.cpp */; };
@@ -87,8 +85,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		060529E8204A416000E1D05A /* RobotEye.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RobotEye.cpp; sourceTree = "<group>"; };
-		060529E9204A416000E1D05A /* RobotEye.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotEye.h; sourceTree = "<group>"; };
 		060529EC204B067400E1D05A /* ofxAMPMClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxAMPMClient.cpp; path = ofxAMPMClient/ofxAMPMClient.cpp; sourceTree = "<group>"; };
 		060529ED204B067400E1D05A /* ofxAMPMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxAMPMClient.h; path = ofxAMPMClient/ofxAMPMClient.h; sourceTree = "<group>"; };
 		060529F0204B072D00E1D05A /* json-forwards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
@@ -132,8 +128,6 @@
 		20F51FA2203DF63B003D8E28 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlparser.cpp; path = ../../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs/tinyxmlparser.cpp; sourceTree = "<group>"; };
 		20F51FA3203DF63B003D8E28 /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml.cpp; path = ../../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs/tinyxml.cpp; sourceTree = "<group>"; };
 		20F51FA4203DF63B003D8E28 /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlerror.cpp; path = ../../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs/tinyxmlerror.cpp; sourceTree = "<group>"; };
-		20F51FA8203E0847003D8E28 /* LightModeRobot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LightModeRobot.cpp; sourceTree = "<group>"; };
-		20F51FA9203E0847003D8E28 /* LightModeRobot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightModeRobot.h; sourceTree = "<group>"; };
 		20F51FAB203F1F2C003D8E28 /* LightModeEt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightModeEt.cpp; sourceTree = "<group>"; };
 		20F51FAC203F1F2D003D8E28 /* LightModeEt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightModeEt.h; sourceTree = "<group>"; };
 		20F51FAF203F47B7003D8E28 /* ETRing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ETRing.cpp; sourceTree = "<group>"; };
@@ -273,8 +267,6 @@
 		20F51FAE203F465E003D8E28 /* pieces */ = {
 			isa = PBXGroup;
 			children = (
-				060529E9204A416000E1D05A /* RobotEye.h */,
-				060529E8204A416000E1D05A /* RobotEye.cpp */,
 				20F51FAF203F47B7003D8E28 /* ETRing.cpp */,
 				20F51FB0203F47B7003D8E28 /* ETRing.h */,
 				2088D1E02049ACA400F9F416 /* GlowShapes.cpp */,
@@ -384,8 +376,6 @@
 				0619F1D32045F476008021D7 /* LightModeLaser.cpp */,
 				65D2BA071EDCA5B900296A02 /* LightModeLight.h */,
 				65D2BA061EDCA5B900296A02 /* LightModeLight.cpp */,
-				20F51FA9203E0847003D8E28 /* LightModeRobot.h */,
-				20F51FA8203E0847003D8E28 /* LightModeRobot.cpp */,
 				068FD994204230FF002AC3F2 /* LightModeScanner.h */,
 				068FD995204230FF002AC3F2 /* LightModeScanner.cpp */,
 				201E029E2040B7DC00A008F0 /* LightModeSpotlight.h */,
@@ -631,7 +621,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				20F51FA5203DF63B003D8E28 /* tinyxmlparser.cpp in Sources */,
-				20F51FAA203E0847003D8E28 /* LightModeRobot.cpp in Sources */,
 				2091AD421ECA2F0C0034049B /* Light.cpp in Sources */,
 				65D2BA051EDCA59900296A02 /* LightModeDisco.cpp in Sources */,
 				20F51FAD203F1F2D003D8E28 /* LightModeEt.cpp in Sources */,
@@ -653,7 +642,6 @@
 				65532CB0202D2ED000551B54 /* Tween.cpp in Sources */,
 				65532C82202D1E2400551B54 /* fft.cpp in Sources */,
 				65532C83202D1E2400551B54 /* ofxBeat.cpp in Sources */,
-				060529EA204A416000E1D05A /* RobotEye.cpp in Sources */,
 				0A6BB18B4F7DDE738DF3E472 /* ofxOscBundle.cpp in Sources */,
 				0619F1D8204620B0008021D7 /* LightModeSpaceship.cpp in Sources */,
 				DB4CF92724BBDE6D7DB0FB75 /* ofxOscMessage.cpp in Sources */,
