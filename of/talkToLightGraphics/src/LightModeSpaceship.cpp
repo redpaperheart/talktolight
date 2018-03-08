@@ -109,7 +109,7 @@ void LightModeSpaceship::draw(){
     if(mCurState == STATE_OUT) return;
 
     ofPushMatrix();
-//    ofTranslate(mBoxes[0].mWidth/2, mBoxes[0].mHeight/2);
+    ofTranslate(mBoxes[0].mWidth/2, mBoxes[0].mHeight/2);
 
     //drawing a solid box first
     for (int i = 0; i < mBoxes.size(); i++) {
