@@ -3,7 +3,7 @@
 <img src="./imgs/talktolight_setup_home.png" />
 
 | Item | Part | Cost/Unit | Supplier | Quantity | Total cost (- shipping) | Comment / Link |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | 1 | Raspberry Pi 3 | $35.00 | Adafruit | 1 | $35.00 | https://www.adafruit.com/product/3055 |
 | 2 | 16GB Card with NOOBS | $14.95 | Adaruit | 1 | $14.95 |  https://www.adafruit.com/product/1583 |
 | 2 | 5V 2.4A Switching Power Supply for Pi| $7.5 | Adafruit | 1 | $7.50 | https://www.adafruit.com/product/1995 |
@@ -19,7 +19,7 @@
 <img src="./imgs/talktolight_setup_installation.png" />
 
 | Item | Part | Cost/Unit | Supplier | Quantity | Total cost (- shipping) | Comment / Link |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | 1 | Raspberry Pi 3 | $35.0 | Adafruit | 1 | $35.00 | https://www.adafruit.com/product/3055 |
 | 2 | 5V 2.4A Switching Power Supply | $7.5 | Adafruit | 1 | $7.50 | https://www.adafruit.com/product/1995 |
 | 3 | SYBA external USB Stereo Sound Adapter | $6.99 | Amazon | 1 | $6.99 | https://www.amazon.com/external-Adapter-Windows-Microphone-SD-CM-UAUD/dp/B001MSS6CS |
@@ -35,7 +35,7 @@
 # Housing
 
 | Item | Part | Cost/Unit | Supplier | Quantity |  Total cost (- shipping)  | Comment / Link |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | 1 | White Acrylic | ~$25 | | 1 | ~$25 | |
 | 2 | Blue Acrylic |  ~$25 | | 1 | ~$25 | |
 | 3 | 18-8 Stainless Steel Square Nut, 10-32 Thread Size| $8.80 | McMaster-Carr | 1 | $8.80 | https://www.mcmaster.com/#catalog/124/3285/=1brrhiy |
