@@ -92,10 +92,10 @@
         "trigger": {
           "queryPatterns": [
            "spotlight mode",
-           "show me a spotlight",
-           "give me a spotlight",
-           "give me the spotlight",
-           "talk like a spotlight"
+           "show me a spot light",
+           "give me a spot light",
+           "give me the spot light",
+           "talk like a spot light"
           ]
         }
       },
