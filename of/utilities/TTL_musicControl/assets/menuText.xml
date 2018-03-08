@@ -1,32 +1,32 @@
 <menuText>
     <lightMenu>
+        <mode>
+            <id>/mode/spotlight</id>
+            <text>Give me a spotlight.</text></mode>
     	<mode>
     		<id>/mode/aurora</id>
-    		<text>talk like the northern lights</text></mode>
+    		<text>Show me the northern lights.</text></mode>
     	<mode>
     		<id>/mode/spaceship</id>
-    		<text>talk like a spaceship</text></mode>
+    		<text>Show me a spaceship.</text></mode>
     	<mode>
     		<id>/mode/alien</id>
-    		<text>talk like an alien</text></mode>
+    		<text>Turn into an alien.</text></mode>
     	<mode>
     		<id>/mode/rainbow</id>
-    		<text>talk like a rainbow</text></mode>
+    		<text>Show me a rainbow.</text></mode>
     	<mode>
     		<id>/mode/cat</id>
-    		<text>talk like a laserpointer</text></mode>
+    		<text>Give me a laser pointer.</text></mode>
     	<mode>
     		<id>/mode/disco</id>
-    		<text>talk like a discoball</text></mode>
+    		<text>Show me a discoball.</text></mode>
     	<mode>
     		<id>/mode/scanner</id>
-    		<text>talk like a scanner</text></mode>
-    	<mode>
-    		<id>/mode/spotlight</id>
-    		<text>talk like a spotlight</text></mode>
+    		<text>Scan the room.</text></mode>
     	<mode>
     		<id>/mode/firefly</id>
-    		<text>talk like fireflies</text></mode>
+    		<text>I've never seen fireflies.</text></mode>
     </lightMenu>
     <talkMenu>
         <mode>
