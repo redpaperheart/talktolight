@@ -332,7 +332,7 @@ void ofApp::setupOsc()
     //menu sender
     menuSender.setup(mModel->menuControlIP, OSC_PORT);
     musicSender.setup(mModel->musicControlIP, OSC_PORT);
-    statusSender.setup(mModel->musicControlIP, OSC_PORT);
+    statusSender.setup(mModel->statusMonitorIP, OSC_STATUS_PORT);
 }
 
 void ofApp::sendStatus(string msg){
@@ -344,7 +344,6 @@ void ofApp::sendStatus(string msg){
 void ofApp::sendMessage(string msg){
     ofxOscMessage m;
     m.setAddress( msg );
-    
     menuSender.sendMessage(m);
     musicSender.sendMessage(m);
     statusSender.sendMessage(m);

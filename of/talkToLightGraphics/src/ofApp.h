@@ -9,6 +9,7 @@
 
 
 #define OSC_PORT              12345
+
 #define OSC_QUESTION_STARTED  "/assistant/question/start"
 #define OSC_RESPONSE_STARTED  "/assistant/response/start"
 #define OSC_RESPONSE_ENDED    "/assistant/response/end"
@@ -27,6 +28,7 @@
 #define OSC_MODE_CAR            "/mode/kitt"
 #define OSC_MODE_GOODNIGHT      "/mode/goodnight"
 
+#define OSC_STATUS_PORT         12346
 #define OSC_STATUS_HEART        "/status/heart"
 
 
