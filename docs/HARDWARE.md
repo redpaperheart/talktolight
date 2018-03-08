@@ -13,8 +13,12 @@
 | 7 | AmazonBasics High-Speed HDMI Cable, 3 Feet | $5.99 | [Amazon](https://www.amazon.com/AmazonBasics-High-Speed-HDMI-Cable-1-Pack/dp/B014I8SIJY) | 1 | $5.99 |
 
 
+Note: Internally, we have been using the Epson PowerLite 1284 Projector, but any projector with an HDMI input would work and can decrease cost.
+
 
 # Electronics - Installation Edition
+
+The following hardware list includes all major components that Red Paper Heart uses to install Talk To Light at an Event. The system is still mainly based on a Raspberry Pi but we upgrade all audio/visual components.
 
 <img src="./imgs/talktolight_setup_installation.png" />
 
