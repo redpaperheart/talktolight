@@ -2,15 +2,15 @@
 
 <img src="./imgs/talktolight_setup_home.png" />
 
-| Item | Part | Cost/Unit | Supplier | Quantity | Total cost (- shipping) | Comment / Link |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 | Raspberry Pi 3 | $35.00 | Adafruit | 1 | $35.00 | https://www.adafruit.com/product/3055 |
-| 2 | 16GB Card with NOOBS | $14.95 | Adaruit | 1 | $14.95 |  https://www.adafruit.com/product/1583 |
-| 2 | 5V 2.4A Switching Power Supply for Pi| $7.5 | Adafruit | 1 | $7.50 | https://www.adafruit.com/product/1995 |
-| 3 | Mini External USB Stereo Speaker | $12.50 | Adafruit | 1 | $12.50 |  https://www.adafruit.com/product/3369 |
-| 4 | USB Microphone | $21.99 | Amazon | 2 | $43.98 | https://www.amazon.com/gp/product/B01D4HTIOY/ |
-| 5 | Epson PowerLite 1284 Projector | $799 | CDW | 1 | $799 |   https://www.cdw.com/shop/products/Epson-PowerLite-1284-Projector-799.99-45-savings754.99-9-30/3767548.aspx?pfm=srh |
-| 6 | AmazonBasics High-Speed HDMI Cable, 3 Feet | $5.99 | Amazon | 1 | $5.99 | https://www.amazon.com/AmazonBasics-High-Speed-HDMI-Cable-1-Pack/dp/B014I8SIJY |
+| Item | Part | Cost/Unit | Supplier (Link) | Quantity | Total cost (- shipping) |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Raspberry Pi 3 | $35.00 | [Adafruit](https://www.adafruit.com/product/3055) | 1 | $35.00 |
+| 2 | 16GB Card with NOOBS | $14.95 | [Adafruit](https://www.adafruit.com/product/1583) | 1 | $14.95  |
+| 3 | 5V 2.4A Switching Power Supply for Pi| $7.5 | [Adafruit](https://www.adafruit.com/product/1995) | 1 | $7.50 |
+| 4 | Mini External USB Stereo Speaker | $12.50 | [Adafruit](https://www.adafruit.com/product/3369) | 1 | $12.50 |
+| 5 | USB Microphone | $21.99 | [Amazon](https://www.amazon.com/gp/product/B01D4HTIOY/) | 2 | $43.98 |
+| 6 | Epson PowerLite 1284 Projector | $799 | [CDW](https://www.cdw.com/shop/products/Epson-PowerLite-1284-Projector-799.99-45-savings754.99-9-30/3767548.aspx?pfm=srh) | 1 | $799  |
+| 7 | AmazonBasics High-Speed HDMI Cable, 3 Feet | $5.99 | [Amazon](https://www.amazon.com/AmazonBasics-High-Speed-HDMI-Cable-1-Pack/dp/B014I8SIJY) | 1 | $5.99 |
 
 
 
