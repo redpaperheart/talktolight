@@ -1,4 +1,4 @@
-# Google Assistant SDK Demo: TalkToLight
+# Google Assistant SDK Demo: Talk to Light
 ---
 
 
@@ -14,7 +14,7 @@
 
 We were moved by the opportunity to translate this remarkable new reality of ours into an interaction that’s as comical as it is inspiring – to express the kind of wonder and humor we feel when using the Assistant, because that’s how we do.
 
-So, we created [TalkToLight](http://redpaperheart.com/work/talktolight).
+So, we created [Talk to Light](http://redpaperheart.com/work/talktolight).
 
 Using the Google Assistant to to create a great experience was greatly improved by the stability of the SDK and the ease of adding device actions.  The SDK allowed us to create an installation where the actions were only limited by our imagination and what would create a great experience.
 
@@ -38,7 +38,7 @@ Using the Google Assistant to to create a great experience was greatly improved 
 
 ## What You'll Need
 
-Besides a Raspberry Pi, Talk To Light can be build with different components and is fairly flexible in its set up. You do need at least one USB microphone (webcams work too), a speaker (USB, audio via HDMI or 3.5mm jack) and a projector. The Housing is optional but it makes it look much better. We built the housing around a specific projector and you might need to adjust the housing measurements if you use a different one.
+Besides a Raspberry Pi, Talk to Light can be build with different components and is fairly flexible in its set up. You do need at least one USB microphone (webcams work too), a speaker (USB, audio via HDMI or 3.5mm jack) and a projector. The Housing is optional but it makes it look much better. We built the housing around a specific projector and you might need to adjust the housing measurements if you use a different one.
 
 - **Estimated time to assemble:** 3h + time to build the housing
 - **Difficulty:** Beginner
@@ -295,7 +295,7 @@ If the Assistant does not respond, follow the [troubleshooting instructions](htt
 
 ---
 
-## Set up all Talk To Light applications
+## Set up all Talk to Light applications
 
 - Clone the repository and all submodules
       (env) pi:~/rph $ git clone --recursive https://github.com/redpaperheart/talktolight
@@ -304,15 +304,15 @@ If the Assistant does not respond, follow the [troubleshooting instructions](htt
       (env) pi:~/rph $ pip install python-osc
 
 
-## Set up the Talk To Light Python App
+## Set up the Talk to Light Python App
 
-This python application uses the Google Assistant Library to connect to the Google Assistant. It uses the microphone and speaker that was defined in the .asoundrc file. The application will run in the background and all events are sent to the TalkToLight graphics app via Open Sound Control (OSC) messages. OSC is a protocol for communication among applications and computers. (Learn more about OSC [here](http://opensoundcontrol.org/introduction-osc).)
+This python application uses the Google Assistant Library to connect to the Google Assistant. It uses the microphone and speaker that was defined in the .asoundrc file. The application will run in the background and all events are sent to the Talk to Light graphics app via Open Sound Control (OSC) messages. OSC is a protocol for communication among applications and computers. (Learn more about OSC [here](http://opensoundcontrol.org/introduction-osc).)
 
 ### Register Custom Device Actions
 
 See also [Google Assistant SDK: Register Custom Device Actions](https://developers.google.com/assistant/sdk/eap/device-actions/partner/library/custom-actions)
 
-#### Deploy the Talk To Light Action Package
+#### Deploy the Talk to Light Action Package
 
 1. [Go to the Actions Console](https://console.actions.google.com/) and add/import your Talk to Light Google Developer Project. (Select the project you used to register your device models and instances.)
 
@@ -343,8 +343,8 @@ Note: If you see the message Requested entity is not found, then you need to imp
 Note: Currently, you cannot test the project using the Actions Web Simulator.
 
 8. Now register your model with the traits from the action package. These traits correspond to the device actions.
-	
-		googlesamples-assistant-devicetool register-model --manufacturer "Red Paper Heart" --product-name "Talk To Light" --type LIGHT --trait goodnightMode --trait Osc --trait catMode --trait discoMode --trait lightMode --trait spotlightMode --trait scannerMode --trait spaceshipMode --trait alienMode --trait fireflyMode --trait rainbowMode --trait auroraMode --model my-model
+
+		googlesamples-assistant-devicetool register-model --manufacturer "Red Paper Heart" --product-name "Talk to Light" --type LIGHT --trait goodnightMode --trait Osc --trait catMode --trait discoMode --trait lightMode --trait spotlightMode --trait scannerMode --trait spaceshipMode --trait alienMode --trait fireflyMode --trait rainbowMode --trait auroraMode --model my-model
 
 9. Now register your device with your Device Id. This is the same Device Id that was displayed when the hotword example was run.
 
@@ -391,10 +391,10 @@ If all custom device actions are registered correctly you should see outputs lik
         {'with_follow_on_turn': False}
       Sending OSC message: /assistant/response/end
 
-Note: If the audio is not setup at the beginning or if the network connection is not working when the app starts, the app needs to be relaunched. It will not dynamically detect new inputs or a new network connection. 
+Note: If the audio is not setup at the beginning or if the network connection is not working when the app starts, the app needs to be relaunched. It will not dynamically detect new inputs or a new network connection.
 
-## Set up the Talk To Light ofx Graphics App
-The graphics application is built in [Open Frameworks](http://openframeworks.cc/) and receives all messages via OSC from the TalkToLight Python app.
+## Set up the Talk to Light ofx Graphics App
+The graphics application is built in [Open Frameworks](http://openframeworks.cc/) and receives all messages via OSC from the Talk to Light Python app.
 
 Install and compile OpenFrameworks following [this guide](http://openframeworks.cc/setup/raspberrypi/raspberry-pi-getting-started/). Make sure the OpenFrameworks folder sits at the same level as the repository folder, not inside of it.
 
