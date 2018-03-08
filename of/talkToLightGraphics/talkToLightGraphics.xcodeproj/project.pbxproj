@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		060529EF204B067400E1D05A /* ofxAMPMClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 060529EC204B067400E1D05A /* ofxAMPMClient.cpp */; };
-		060529F3204B073400E1D05A /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 060529F2204B073400E1D05A /* jsoncpp.cpp */; };
 		0619F1D12044DF3C008021D7 /* LightModeFirefly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0619F1D02044DF3C008021D7 /* LightModeFirefly.cpp */; };
 		0619F1D52045F477008021D7 /* LightModeLaser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0619F1D32045F476008021D7 /* LightModeLaser.cpp */; };
 		0619F1D8204620B0008021D7 /* LightModeSpaceship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0619F1D6204620AF008021D7 /* LightModeSpaceship.cpp */; };
@@ -85,11 +83,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		060529EC204B067400E1D05A /* ofxAMPMClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxAMPMClient.cpp; path = ofxAMPMClient/ofxAMPMClient.cpp; sourceTree = "<group>"; };
-		060529ED204B067400E1D05A /* ofxAMPMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxAMPMClient.h; path = ofxAMPMClient/ofxAMPMClient.h; sourceTree = "<group>"; };
-		060529F0204B072D00E1D05A /* json-forwards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
-		060529F1204B072D00E1D05A /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
-		060529F2204B073400E1D05A /* jsoncpp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
 		0619F1CF2044DF3B008021D7 /* LightModeFirefly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightModeFirefly.h; sourceTree = "<group>"; };
 		0619F1D02044DF3C008021D7 /* LightModeFirefly.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightModeFirefly.cpp; sourceTree = "<group>"; };
 		0619F1D32045F476008021D7 /* LightModeLaser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightModeLaser.cpp; sourceTree = "<group>"; };
@@ -205,18 +198,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		060529EB204B065C00E1D05A /* ofxAMPMClient */ = {
-			isa = PBXGroup;
-			children = (
-				060529F2204B073400E1D05A /* jsoncpp.cpp */,
-				060529F0204B072D00E1D05A /* json-forwards.h */,
-				060529F1204B072D00E1D05A /* json.h */,
-				060529EC204B067400E1D05A /* ofxAMPMClient.cpp */,
-				060529ED204B067400E1D05A /* ofxAMPMClient.h */,
-			);
-			name = ofxAMPMClient;
-			sourceTree = "<group>";
-		};
 		201E02992040B6C500A008F0 /* ofxBlurShader */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,7 +259,6 @@
 		20F51FB220407A99003D8E28 /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				060529EB204B065C00E1D05A /* ofxAMPMClient */,
 				201E02992040B6C500A008F0 /* ofxBlurShader */,
 				20F51FBA20407B43003D8E28 /* ofxBeat */,
 				20F51FB920407B2E003D8E28 /* ofxTweenzor */,
@@ -624,7 +604,6 @@
 				2091AD421ECA2F0C0034049B /* Light.cpp in Sources */,
 				65D2BA051EDCA59900296A02 /* LightModeDisco.cpp in Sources */,
 				20F51FAD203F1F2D003D8E28 /* LightModeEt.cpp in Sources */,
-				060529F3204B073400E1D05A /* jsoncpp.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				20E74B941ECCE02500F32173 /* LightCircle.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
@@ -632,7 +611,6 @@
 				65D2BA081EDCA5B900296A02 /* LightModeLight.cpp in Sources */,
 				6573B8CA1ED4E3F600C1B89B /* LightMode.cpp in Sources */,
 				6573B8D31ED550C900C1B89B /* Model.cpp in Sources */,
-				060529EF204B067400E1D05A /* ofxAMPMClient.cpp in Sources */,
 				20F51FA6203DF63B003D8E28 /* tinyxml.cpp in Sources */,
 				068FD99820423100002AC3F2 /* LightModeScanner.cpp in Sources */,
 				0619F1D12044DF3C008021D7 /* LightModeFirefly.cpp in Sources */,
