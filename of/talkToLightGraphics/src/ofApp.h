@@ -3,9 +3,6 @@
 #include "ofMain.h"
 #include "ofxOsc.h"
 #include "ofxXmlSettings.h"
-#include "ofxAMPMClient.h"
-
-
 
 #include "Light.h"
 #include "Model.h"
@@ -30,6 +27,7 @@
 #define OSC_MODE_CAR            "/mode/kitt"
 #define OSC_MODE_GOODNIGHT      "/mode/goodnight"
 
+#define OSC_STATUS_HEART        "/status/heart"
 
 
 class ofApp : public ofBaseApp{
@@ -65,9 +63,6 @@ class ofApp : public ofBaseApp{
     void parseOsc();
     void gotMessage(ofMessage msg);
     
-    ofx::AMPMClientRef mAMPM;
-    void setupAMPM();
-    
     void audioIn(float * input, int bufferSize, int nChannels);
     
     ofSoundStream mSoundStream;
@@ -76,6 +71,10 @@ class ofApp : public ofBaseApp{
     ofxOscReceiver receiver;
     ofxOscSender menuSender;
     ofxOscSender musicSender;
+    ofxOscSender statusSender;
+    
+    void sendStatus(string msg);
+    
     void sendMessage(string msg);
     void setMode(string osc);
     void changeToRandomMode();
@@ -89,7 +88,4 @@ class ofApp : public ofBaseApp{
     string  mControlsString;
     Light   mLight;
 
-	//shader for northern lights -- testing phase
-	//ofShader mNLights;
-	//ofTrueTypeFont mFont; //to use in OF example of shader .. will delete afterwards 
 };

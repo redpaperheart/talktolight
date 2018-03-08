@@ -52,7 +52,6 @@ void ofApp::setup()
 	ofBackground(0, 0, 0);
 	
     setupOsc();
-    setupAMPM();
 
     setupAudio(audioChannelDefault);
     
@@ -84,6 +83,7 @@ void ofApp::loadSettings(){
         settings.setValue("settings:audioChannelDefault", -1); //default device id
         settings.setValue("settings:musicControlIP", "192.168.0.61");
         settings.setValue("settings:menuControlIP", "192.168.0.60");
+        settings.setValue("settings:statusMonitorIP", "10.21.5.80");
         settings.setValue("settings:idleTimeout", 60000);
         settings.setValue("settings:volumeScaler", 1.0);
         settings.saveFile("settings.xml");
@@ -99,6 +99,7 @@ void ofApp::loadSettings(){
     setDebug(settings.getValue("settings:launchDebug", false));
     mModel->musicControlIP = settings.getValue("settings:musicControlIP", "192.168.0.61");
     mModel->menuControlIP = settings.getValue("settings:menuControlIP", "192.168.0.60");
+    mModel->statusMonitorIP = settings.getValue("settings:statusMonitorIP", "10.21.5.80");
     mModel->volumeScaler = settings.getValue("settings:volumeScaler", 1.0);
     mModel->discoVolumeScaler = settings.getValue("settings:discoVolumeScaler", 25);
     mModel->rainbowVolumeScaler = settings.getValue("settings:rainbowVolumeScaler", .3);
@@ -111,11 +112,9 @@ void ofApp::loadSettings(){
     
 }
 void ofApp::update(){
-	
+    sendStatus(OSC_STATUS_HEART);
+    
 	mModel->mBeat.update(ofGetElapsedTimeMillis());
-    mAMPM->update();
-	//lets scale the vol up to a 0-1 range 
-	//mScaledVol = ofMap(mSmoothedVol, 0.0, 0.17, 0.0, 1.0, true);
 	mModel->mVolScaled = ofMap(mModel->mVolCur *mModel->volumeScaler, 0.0, 0.17, 0.0, 1.0, true);
 
     //lets record the volume into an array
@@ -186,7 +185,6 @@ void ofApp::setMode(string osc){
     sendMessage(osc);
 }
 void ofApp::changeToRandomMode(){
-    cout << "changing to random mode" << endl;
     
     int r = ofRandom(0, 10);
     switch(r){
@@ -325,9 +323,6 @@ void ofApp::audioIn(float * input, int bufferSize, int nChannels)
 
 // OSC
 //--------------------------------------------------------------
-void ofApp::setupAMPM(){
-    mAMPM = ofx::AMPMClient::create( 3002, 3003 );
-}
 void ofApp::setupOsc()
 {
     // listen to osc on the given port
@@ -337,6 +332,13 @@ void ofApp::setupOsc()
     //menu sender
     menuSender.setup(mModel->menuControlIP, OSC_PORT);
     musicSender.setup(mModel->musicControlIP, OSC_PORT);
+    statusSender.setup(mModel->musicControlIP, OSC_PORT);
+}
+
+void ofApp::sendStatus(string msg){
+    ofxOscMessage m;
+    m.setAddress( msg );
+    statusSender.sendMessage(m);
 }
 
 void ofApp::sendMessage(string msg){
@@ -345,6 +347,7 @@ void ofApp::sendMessage(string msg){
     
     menuSender.sendMessage(m);
     musicSender.sendMessage(m);
+    statusSender.sendMessage(m);
 }
 
 void ofApp::parseOsc()
@@ -354,12 +357,11 @@ void ofApp::parseOsc()
 		receiver.getNextMessage(m);
         
         auto addr = m.getAddress();
-//        string str1( "Alpha Beta Gamma Delta" );
         
         //check if it's a mode change
         string::size_type isMode = addr.find( "/mode/", 0 );
         if( isMode != string::npos ) {
-            cout << "Mode Change " << isMode << endl;
+            cout << "OSC: Mode Change " << isMode << endl;
             setMode(addr);
         }
 		
@@ -690,7 +692,7 @@ void ofApp::keyPressed(int key)
 
 //-
 void ofApp::exit(){
-    cout << "exiting" << endl;
+    cout << "Exiting App" << endl;
     //save the device id
     settings.setValue("settings:audioChannelDefault", currentDeviceId); //default device id
     settings.saveFile("settings.xml");
