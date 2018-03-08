@@ -342,14 +342,6 @@ Note: If you see the message Requested entity is not found, then you need to imp
         (env) pi:~/rph $ ./gactions test --action_package talktolight/py/deviceActions.json --project my-project-id
 Note: Currently, you cannot test the project using the Actions Web Simulator.
 
-8. Now register your model with the traits from the action package. These traits correspond to the device actions.
-
-		googlesamples-assistant-devicetool register-model --manufacturer "Red Paper Heart" --product-name "Talk to Light" --type LIGHT --trait goodnightMode --trait Osc --trait catMode --trait discoMode --trait lightMode --trait spotlightMode --trait scannerMode --trait spaceshipMode --trait alienMode --trait fireflyMode --trait rainbowMode --trait auroraMode --model my-model
-
-9. Now register your device with your Device Id. This is the same Device Id that was displayed when the hotword example was run.
-
-		googlesamples-assistant-devicetool register-device --client-type LIBRARY --model my-model --device my-device-id
-
 For more details on how to submit your Action Package for distribution, refer to the [Action Package reference documentation](https://developers.google.com/actions/distributing-your-apps).
 
 ### Start the Talk to Light python app
