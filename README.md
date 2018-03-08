@@ -260,7 +260,7 @@ The sample code includes a registration tool for your convenience. Make sure you
 
 In the following command, replace `my-model` with whatever you want to call your model. Note that this name must be globally unique so you should use your Google Developer Project ID as a prefix to help avoid collisions (for example, my-dev-project-my-model-1. Also, don't be surprised that `talk-to-light-model-1` does not work as we already registered that.)
 
-    (env) pi:~/rph $ googlesamples-assistant-devicetool register-model --model my-model --manufacturer "Red Paper Heart" --product-name "Talk to Light" --type LIGHT --trait Osc --trait catMode --trait discoMode --trait lightMode --trait spotlightMode --trait scannerMode --trait robotMode --trait spaceshipMode --trait alienMode --trait fireflyMode --trait rainbowMode --trait auroraMode --trait kittMode
+    (env) pi:~/rph $ googlesamples-assistant-devicetool register-model --model my-model --manufacturer "Red Paper Heart" --product-name "Talk to Light" --type LIGHT
 
 Now query the server for the model you just created.
 
@@ -341,6 +341,14 @@ Note: If you see the message Requested entity is not found, then you need to imp
 
         (env) pi:~/rph $ ./gactions test --action_package talktolight/py/deviceActions.json --project my-project-id
 Note: Currently, you cannot test the project using the Actions Web Simulator.
+
+8. Now register your model with the traits from the action package. These traits correspond to the device actions.
+	
+		googlesamples-assistant-devicetool register-model --manufacturer "Red Paper Heart" --product-name "Talk To Light" --type LIGHT --trait goodnightMode --trait Osc --trait catMode --trait discoMode --trait lightMode --trait spotlightMode --trait scannerMode --trait spaceshipMode --trait alienMode --trait fireflyMode --trait rainbowMode --trait auroraMode --model my-model
+
+9. Now register your device with your Device Id. This is the same Device Id that was displayed when the hotword example was run.
+
+		googlesamples-assistant-devicetool register-device --client-type LIBRARY --model my-model --device my-device-id
 
 For more details on how to submit your Action Package for distribution, refer to the [Action Package reference documentation](https://developers.google.com/actions/distributing-your-apps).
 
