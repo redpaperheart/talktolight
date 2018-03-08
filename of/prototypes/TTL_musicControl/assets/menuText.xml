@@ -25,9 +25,6 @@
     		<id>/mode/spotlight</id>
     		<text>talk like a spotlight</text></mode>
     	<mode>
-    		<id>/mode/robot</id>
-    		<text>talk like an evil robot</text></mode>
-    	<mode>
     		<id>/mode/firefly</id>
     		<text>talk like fireflies</text></mode>
     </lightMenu>
@@ -68,20 +65,9 @@
             </options>
         </mode>
         <mode>
-            <id>/mode/robot</id>
-            <options>
-                <option><text lines="1">What is the fastest</text></option>
-                <option><text>computer in the world?</text></option>
-                <option><text lines="1">Do you have a time</text></option>
-                <option><text>machine?</text></option>
-                <option><text>Are you a robot?</text></option>
-                <option><text>Self Destruct!</text></option>
-            </options>
-        </mode>
-        <mode>
             <id>/mode/disco</id>
             <options>
-                <option><text>What is a disco ball?</text></option>
+                <option><text>What's a disco ball?</text></option>
                 <option><text>Compliment me.</text></option>
                 <option><text lines="1">Where is the nearest dance</text></option>
                 <option><text>club?</text></option>
@@ -121,8 +107,7 @@
                 <option><text lines="1">What causes the Northern</text></option>
                 <option><text>Lights?</text></option>
                 <option><text>What is the weather today?</text></option>
-                <option><text lines="1">When is the next meteor</text></option>
-                <option><text>shower?</text></option>
+                <option><text lines="1">What is a meteor shower?</text></option>
     		</options>
     	</mode>
     	
