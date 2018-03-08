@@ -40,11 +40,6 @@ void Light::setup()
 	mModeNLights = std::make_shared<LightModeNLights>();
     mModeNLights->setup( mAssistantLightRef );
 	mModes.push_back(mModeNLights);
-    
-    // create Robot mode
-    mModeRobot = std::make_shared<LightModeRobot>();
-    mModeRobot->setup( mAssistantLightRef );
-    mModes.push_back(mModeRobot);
 
 	// create Scanner mode
 	mModeScanner = std::make_shared<LightModeScanner>();
@@ -160,9 +155,6 @@ void Light::setMode(Model::Mode mode)
 		case Model::MODE_AURORA:
 			mModeCurrent = mModeNLights;
 			break;
-        case Model::MODE_ROBOT:
-            mModeCurrent = mModeRobot;
-            break;
 		case Model::MODE_SCANNER:
 			mModeCurrent = mModeScanner;
 			break;

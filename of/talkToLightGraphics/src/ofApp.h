@@ -21,7 +21,6 @@
 #define OSC_MODE_CAT          "/mode/cat"
 
 #define OSC_MODE_SPOTLIGHT      "/mode/spotlight"
-#define OSC_MODE_ROBOT          "/mode/robot"
 #define OSC_MODE_RAINBOW        "/mode/rainbow"
 #define OSC_MODE_AURORA         "/mode/aurora"
 #define OSC_MODE_SPACESHIP      "/mode/spaceship"

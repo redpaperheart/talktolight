@@ -23,7 +23,6 @@ void ofApp::setup()
     "q - mode Disco \n"
     "w - mode Laser \n"
 	"e - mode Aurora \n"
-    "r - mode Robot \n"
     "t - mode Spotlight \n"
     "y - mode Alien \n"
     "u - mode Spaceship \n"
@@ -174,9 +173,6 @@ void ofApp::setMode(string osc){
     else if (osc == OSC_MODE_SCANNER) {
         mLight.setMode(Model::MODE_SCANNER);
     }
-    else if (osc == OSC_MODE_ROBOT) {
-        mLight.setMode(Model::MODE_ROBOT);
-    }
     else if (osc == OSC_MODE_SPOTLIGHT) {
         mLight.setMode(Model::MODE_SPOTLIGHT);
     }
@@ -216,7 +212,7 @@ void ofApp::changeToRandomMode(){
             setMode(OSC_MODE_SCANNER);
             break;
         case 7:
-            setMode(OSC_MODE_ROBOT);
+            setMode(OSC_MODE_SPACESHIP);
             break;
         case 8:
             setMode(OSC_MODE_SPOTLIGHT);
@@ -633,9 +629,6 @@ void ofApp::keyPressed(int key)
             break;
         case 'e':
             setMode(OSC_MODE_AURORA);
-            break;
-        case 'r':
-            setMode(OSC_MODE_ROBOT);
             break;
         case 't':
             setMode(OSC_MODE_SPOTLIGHT);

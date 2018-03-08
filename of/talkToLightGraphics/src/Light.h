@@ -15,7 +15,6 @@
 #include "LightModeDisco.h"
 #include "LightModeLight.h"
 #include "LightModeNLights.h"
-#include "LightModeRobot.h"
 #include "LightModeScanner.h"
 #include "LightModeSpotlight.h"
 #include "LightModeGoodNight.h"
@@ -57,7 +56,6 @@ class Light {
     std::shared_ptr<LightModeDisco>     mModeDisco;
     std::shared_ptr<LightModeLaser>     mModeLaser;
 	std::shared_ptr<LightModeNLights>   mModeNLights;
-    std::shared_ptr<LightModeRobot>     mModeRobot;
 	std::shared_ptr<LightModeScanner>   mModeScanner;
     std::shared_ptr<LightModeSpotlight> mModeSpotLight;
     std::shared_ptr<LightModeSpaceship> mModeSpaceship;
