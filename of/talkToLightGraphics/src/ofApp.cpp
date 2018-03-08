@@ -112,7 +112,11 @@ void ofApp::loadSettings(){
     
 }
 void ofApp::update(){
-    sendStatus(OSC_STATUS_HEART);
+    if(mModel->lastPulse + mModel->heartBeatInterval < ofGetElapsedTimeMillis()){
+        sendStatus(OSC_STATUS_HEART);
+        mModel->lastPulse = ofGetElapsedTimeMillis();
+    }
+    
     
 	mModel->mBeat.update(ofGetElapsedTimeMillis());
 	mModel->mVolScaled = ofMap(mModel->mVolCur *mModel->volumeScaler, 0.0, 0.17, 0.0, 1.0, true);
@@ -336,6 +340,7 @@ void ofApp::setupOsc()
 }
 
 void ofApp::sendStatus(string msg){
+//    cout << "heart beat" << endl;
     ofxOscMessage m;
     m.setAddress( msg );
     statusSender.sendMessage(m);

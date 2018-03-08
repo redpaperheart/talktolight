@@ -68,6 +68,9 @@ public:
     float rainbowVolumeScaler=1;
     float fireflyVolumeScaler=1;
     
+    int heartBeatInterval = 1000;
+    int lastPulse =0;
+    
     int idleTimeout = 60000; //millis
     int idleTimer = 10000;
     void resetIdleTimer(){
