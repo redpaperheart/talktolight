@@ -8,30 +8,30 @@
 
 void MenuView::setup(){
 //    mScale = .5;
+    mItemYOffset = 720;
     highlightColor = ofFloatColor(238.0/255.0, 132.0/255.0, 255.0/255.0, 1);
     whiteColor = ofFloatColor(1, 1, 1, 1);
-    dimColor = ofFloatColor(.7, .7, .7, 1);
+    dimColor = ofFloatColor(.2, .2, .2, 1);
 }
 
 void MenuView::setupLight(){
     viewType = 0; //left screen
     setup();
-    
     //add header
-    auto t = addItem("CHANGE THE LIGHT", "", mLineHeight*2);
-    t->inactiveColor = dimColor;
-    t->activeColor = whiteColor;
-    t = addItem("Hey Google...", "", mLineHeight*2);
-    t->inactiveColor = dimColor;
-    t->activeColor = whiteColor;
+//    auto t = addItem("CHANGE THE LIGHT", "", mLineHeight*2);
+//    t->inactiveColor = dimColor;
+//    t->activeColor = whiteColor;
+//    t = addItem("Hey Google...", "", mLineHeight*2);
+//    t->inactiveColor = dimColor;
+//    t->activeColor = whiteColor;
+    
 }
 void MenuView::setupTalk(){
     viewType = 1; //right screen
     setup();
-    
     //add header
-    auto t = addItem("TALK TO THE LIGHT", "", mLineHeight*2);
-    t = addItem("Hey Google...", "", mLineHeight*2);
+//    auto t = addItem("TALK TO THE LIGHT", "", mLineHeight*2);
+//    t = addItem("Hey Google...", "", mLineHeight*2);
 }
 void MenuView::show(){
     for (auto i : mTexts) {
@@ -128,6 +128,8 @@ void MenuView::draw(){
         ofNoFill();
         ofDrawRectangle(0, 0, 1080, 1920);
     }
+    //draw header
+    headerImage.draw(0,0);
     
     ofTranslate(mMargin, mMargin);
     

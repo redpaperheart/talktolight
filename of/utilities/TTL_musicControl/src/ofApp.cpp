@@ -99,6 +99,7 @@ void ofApp::setupViews(){
     
     lightMenu = std::make_shared<MenuView>();
     lightMenu->font = notoRegular;
+    lightMenu->headerImage.load(assetPath + "menu_left.jpg");
     lightMenu->setupLight();
     
     //get the menu text
@@ -118,6 +119,7 @@ void ofApp::setupViews(){
     
     talkMenu = std::make_shared<MenuView>();
     talkMenu->font = notoRegular;
+    talkMenu->headerImage.load(assetPath + "menu_right.jpg");
     talkMenu->setupTalk();
     talkMenu->mPosition = ofVec2f(1080, 0);
     

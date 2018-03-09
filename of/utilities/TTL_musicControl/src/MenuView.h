@@ -35,7 +35,7 @@ public:
     ofVec2f mPosition;
     float mScale = 1;
     bool debug=false;
-    float mMargin = 80;
+    float mMargin = 90;
     float fontSize = 50;
     float mLineHeight = fontSize * 2;
     float mItemYOffset = fontSize; //increments as items get added
@@ -43,6 +43,8 @@ public:
     ofFloatColor highlightColor;
     ofFloatColor whiteColor;
     ofFloatColor dimColor;
+    
+    ofImage headerImage;
     
     std::shared_ptr<ofTrueTypeFont> font;
 protected:
