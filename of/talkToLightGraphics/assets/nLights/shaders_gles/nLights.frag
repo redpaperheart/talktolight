@@ -43,7 +43,7 @@ float distY(vec2 uv){
 	  noiseY_2 = 0.0;
   }
   
-  float noiseY = 2.0*noiseY_1 + 0.25*noiseY_2;
+  float noiseY = 2.0*noiseY_1 + 1.0*noiseY_2;
   
   float v;
   v = uv.y ;//* noiseY *0.05 * sin(uTime) ;
@@ -96,12 +96,12 @@ float alphaMasking(vec2 uv){
 void main(){
     vec2 uv = gl_FragCoord.xy / (uRes.xy);
     
-    // uv.y += 0.2;
+    uv.y -= 0.2;
 
     // noisy horizon
-    uv.y += 0.15 * texture2D(uNoise3 , vec2(uAudio_1 , uv.r )).r;
-    uv.y += 0.1 * texture2D(uNoise2 , vec2(uAudio_2 , uv.r )).r;
-    uv.y += 0.15 * texture2D(uNoise5 , vec2(uAudio_3 , uv.r )).r;
+    uv.y += 0.25 * texture2D(uNoise3 , vec2(uAudio_1 , uv.r )).r;
+    uv.y += 0.2  * texture2D(uNoise2 , vec2(uAudio_2 , uv.r )).r;
+    uv.y += 0.25 * texture2D(uNoise5 , vec2(uAudio_3 , uv.r )).r;
      
     //displace u v.y for northern lights streaks 
     float v = distY( uv );
@@ -114,7 +114,6 @@ void main(){
     //vec2 seed = gl_FragCoord.xy;
     //color += addStars( seed, v , uv);
 
-    gl_FragColor.rgb = color;
-    gl_FragColor.a = uAlphaMult * alphaMasking(uv) ;
-
+    gl_FragColor.rgb = color + vec3(0.15);
+    gl_FragColor.a = uAlphaMult * alphaMasking(uv) + .15 ;
 }
