@@ -124,6 +124,9 @@ def process_event(event, device_id):
         
     elif event.type == EventType.ON_CONVERSATION_TURN_TIMEOUT:
         send_osc(OSC_RESPONSE_ENDED)
+    
+    elif event.type == EventType.ON_ASSISTANT_ERROR:
+        send_osc(OSC_RESPONSE_ENDED)
         
     #custom device actions
     if event.type == EventType.ON_DEVICE_ACTION:

@@ -159,7 +159,7 @@ void ofApp::setMode(string osc){
         mLight.setMode(Model::MODE_AURORA);
     }
     else if (osc == OSC_MODE_SPACESHIP) {
-        if(ofRandom(0,100)<50){
+        if(ofRandom(0,100)>50){
             mLight.setMode(Model::MODE_SPACESHIP);
         }else{
             mLight.setMode(Model::MODE_ALIEN);
