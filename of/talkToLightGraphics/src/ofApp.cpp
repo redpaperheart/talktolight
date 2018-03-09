@@ -159,7 +159,11 @@ void ofApp::setMode(string osc){
         mLight.setMode(Model::MODE_AURORA);
     }
     else if (osc == OSC_MODE_SPACESHIP) {
-        mLight.setMode(Model::MODE_SPACESHIP);
+        if(ofRandom(0,100)<50){
+            mLight.setMode(Model::MODE_SPACESHIP);
+        }else{
+            mLight.setMode(Model::MODE_ALIEN);
+        }
     }
     else if (osc == OSC_MODE_ALIEN) {
         mLight.setMode(Model::MODE_ALIEN);
@@ -170,9 +174,9 @@ void ofApp::setMode(string osc){
     else if (osc == OSC_MODE_CAT) {
         mLight.setMode(Model::MODE_LASER);
     }
-    else if (osc == OSC_MODE_DISCO) {
-        mLight.setMode(Model::MODE_DISCO);
-    }
+//    else if (osc == OSC_MODE_DISCO) {
+//        mLight.setMode(Model::MODE_DISCO);
+//    }
     else if (osc == OSC_MODE_SCANNER) {
         mLight.setMode(Model::MODE_SCANNER);
     }
@@ -190,7 +194,7 @@ void ofApp::setMode(string osc){
 }
 void ofApp::changeToRandomMode(){
     
-    int r = ofRandom(0, 10);
+    int r = ofRandom(0, 5);
     switch(r){
         case 0:
             setMode(OSC_MODE_AURORA);
@@ -205,21 +209,9 @@ void ofApp::changeToRandomMode(){
             setMode(OSC_MODE_RAINBOW);
             break;
         case 4:
-            setMode(OSC_MODE_CAT);
-            break;
-        case 5:
-            setMode(OSC_MODE_DISCO);
-            break;
-        case 6:
-            setMode(OSC_MODE_SCANNER);
-            break;
-        case 7:
-            setMode(OSC_MODE_SPACESHIP);
-            break;
-        case 8:
             setMode(OSC_MODE_SPOTLIGHT);
             break;
-        case 9:
+        case 5:
             setMode(OSC_MODE_FIREFLY);
             break;
         default:
