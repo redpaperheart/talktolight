@@ -28,7 +28,8 @@ void ofApp::draw(){
     "\nSTATE: " + currentState +
     "\nLAST HEART BEAT: " + ofToString(lastHeartBeat) +
     "\nTIME DEAD: " + ofToString(ofGetElapsedTimeMillis()-lastHeartBeat) +
-    "\nAverage Volume: ?" + ofToString(0);
+//    "\nAverage Volume: ?" + ofToString(0);
+    "\nCurrent Device: " + deviceName;
     
     ofDrawBitmapString(statusString, 50, 50);
 }
@@ -61,6 +62,12 @@ void ofApp::parseOsc()
         }
         else if (addr == OSC_RESPONSE_ENDED) {
              currentState = OSC_RESPONSE_ENDED;
+        }
+        else if (addr ==OSC_DEVICE_CHANGE){
+            if(m.getArgType(0) == OFXOSC_TYPE_STRING){
+//                msg_string += m.getArgAsString(i);
+                deviceName = m.getArgAsString(0);
+            }
         }
         else{
             // unrecognized message: display on the bottom of the screen

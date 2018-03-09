@@ -24,6 +24,7 @@
 
 #define OSC_STATUS_PORT         12346
 #define OSC_STATUS_HEART        "/status/heart"
+#define OSC_DEVICE_CHANGE       "/device/change"
 
 class ofApp : public ofBaseApp{
 
@@ -37,6 +38,7 @@ class ofApp : public ofBaseApp{
         int lastHeartBeat; // in ms
         int hearBeatTimeout= 3000; // in ms
         float avgVolume;
+        string deviceName;
         void onHeartBeat();
         void parseOsc();
         ofxOscReceiver receiver;

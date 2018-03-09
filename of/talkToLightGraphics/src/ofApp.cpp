@@ -251,6 +251,8 @@ void ofApp::setupAudio(unsigned int deviceId)
             cout << rate << " ";
         }
         cout << endl;
+        
+        sendDeviceUpdate(mModel->mCurDevice.name);
     }
     catch (std::exception &e) {
         cout << e.what() << endl;
@@ -335,6 +337,13 @@ void ofApp::sendStatus(string msg){
 //    cout << "heart beat" << endl;
     ofxOscMessage m;
     m.setAddress( msg );
+    statusSender.sendMessage(m);
+}
+void ofApp::sendDeviceUpdate(string deviceName){
+    ofxOscMessage m;
+    cout << "OSC: Device changed " << deviceName << endl;
+    m.setAddress( OSC_DEVICE_CHANGE );
+    m.addStringArg(deviceName);
     statusSender.sendMessage(m);
 }
 

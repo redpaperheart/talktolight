@@ -30,6 +30,7 @@
 
 #define OSC_STATUS_PORT         12346
 #define OSC_STATUS_HEART        "/status/heart"
+#define OSC_DEVICE_CHANGE       "/device/change"
 
 
 class ofApp : public ofBaseApp{
@@ -76,6 +77,7 @@ class ofApp : public ofBaseApp{
     ofxOscSender statusSender;
     
     void sendStatus(string msg);
+    void sendDeviceUpdate(string deviceName="");
     
     void sendMessage(string msg);
     void setMode(string osc);
