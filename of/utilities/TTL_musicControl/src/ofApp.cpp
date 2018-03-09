@@ -9,11 +9,11 @@ void ofApp::setup(){
     if(!musicControl){
         setupViews();
     }else{
-        targetVolume = currentVolume;
+        currentVolume = lowVolume;
+        targetVolume = lowVolume;
         setVolume(currentVolume);
         //start the playlist playing
         startPlaylist();
-//        setupSFX();
     }
     
     ofSetVerticalSync(true);
@@ -99,6 +99,7 @@ void ofApp::setupViews(){
     
     lightMenu = std::make_shared<MenuView>();
     lightMenu->font = notoRegular;
+    lightMenu->headerImage.load(assetPath + "menu_left.jpg");
     lightMenu->setupLight();
     
     //get the menu text
@@ -118,6 +119,7 @@ void ofApp::setupViews(){
     
     talkMenu = std::make_shared<MenuView>();
     talkMenu->font = notoRegular;
+    talkMenu->headerImage.load(assetPath + "menu_right.jpg");
     talkMenu->setupTalk();
     talkMenu->mPosition = ofVec2f(1080, 0);
     
@@ -151,26 +153,22 @@ void ofApp::setupViews(){
 void ofApp::setMode(string oscId){
     currentMode = oscId;
     if(musicControl){
-        if(currentMode==OSC_MODE_DISCO){
-            musicPlay();
-        }else{
-            musicStop();
-//            playSFX(sfx1);
-        }
+//        if(currentMode==OSC_MODE_DISCO){
+//            musicPlay();
+//        }else{
+//            musicStop();
+////            playSFX(sfx1);
+//        }
     }else{
         lightMenu->activateMode(oscId);
         talkMenu->activateMode(oscId);
     }
 }
 void ofApp::onQuestionStarted(){
-    if(currentMode==OSC_MODE_DISCO){
-        fadeVolume(lowVolume);
-    }
+    fadeVolume(lowVolume);
 }
 void ofApp::onResponseComplete(){
-    if(currentMode==OSC_MODE_DISCO){
-        fadeVolume(maxVolume);
-    }
+    fadeVolume(maxVolume);
 }
 void ofApp::setDebug(bool val){
     debug = val;
