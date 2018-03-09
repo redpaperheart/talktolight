@@ -112,7 +112,11 @@ void ofApp::loadSettings(){
     
 }
 void ofApp::update(){
-    sendStatus(OSC_STATUS_HEART);
+    if(mModel->lastPulse + mModel->heartBeatInterval < ofGetElapsedTimeMillis()){
+        sendStatus(OSC_STATUS_HEART);
+        mModel->lastPulse = ofGetElapsedTimeMillis();
+    }
+    
     
 	mModel->mBeat.update(ofGetElapsedTimeMillis());
 	mModel->mVolScaled = ofMap(mModel->mVolCur *mModel->volumeScaler, 0.0, 0.17, 0.0, 1.0, true);
@@ -155,7 +159,11 @@ void ofApp::setMode(string osc){
         mLight.setMode(Model::MODE_AURORA);
     }
     else if (osc == OSC_MODE_SPACESHIP) {
-        mLight.setMode(Model::MODE_SPACESHIP);
+        if(ofRandom(0,100)<50){
+            mLight.setMode(Model::MODE_SPACESHIP);
+        }else{
+            mLight.setMode(Model::MODE_ALIEN);
+        }
     }
     else if (osc == OSC_MODE_ALIEN) {
         mLight.setMode(Model::MODE_ALIEN);
@@ -166,9 +174,9 @@ void ofApp::setMode(string osc){
     else if (osc == OSC_MODE_CAT) {
         mLight.setMode(Model::MODE_LASER);
     }
-    else if (osc == OSC_MODE_DISCO) {
-        mLight.setMode(Model::MODE_DISCO);
-    }
+//    else if (osc == OSC_MODE_DISCO) {
+//        mLight.setMode(Model::MODE_DISCO);
+//    }
     else if (osc == OSC_MODE_SCANNER) {
         mLight.setMode(Model::MODE_SCANNER);
     }
@@ -186,7 +194,7 @@ void ofApp::setMode(string osc){
 }
 void ofApp::changeToRandomMode(){
     
-    int r = ofRandom(0, 10);
+    int r = ofRandom(0, 5);
     switch(r){
         case 0:
             setMode(OSC_MODE_AURORA);
@@ -201,21 +209,9 @@ void ofApp::changeToRandomMode(){
             setMode(OSC_MODE_RAINBOW);
             break;
         case 4:
-            setMode(OSC_MODE_CAT);
-            break;
-        case 5:
-            setMode(OSC_MODE_DISCO);
-            break;
-        case 6:
-            setMode(OSC_MODE_SCANNER);
-            break;
-        case 7:
-            setMode(OSC_MODE_SPACESHIP);
-            break;
-        case 8:
             setMode(OSC_MODE_SPOTLIGHT);
             break;
-        case 9:
+        case 5:
             setMode(OSC_MODE_FIREFLY);
             break;
         default:
@@ -336,6 +332,7 @@ void ofApp::setupOsc()
 }
 
 void ofApp::sendStatus(string msg){
+//    cout << "heart beat" << endl;
     ofxOscMessage m;
     m.setAddress( msg );
     statusSender.sendMessage(m);
