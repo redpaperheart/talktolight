@@ -10,31 +10,13 @@
     		<id>/mode/spaceship</id>
     		<text>Show me a spaceship.</text></mode>
     	<mode>
-    		<id>/mode/alien</id>
-    		<text>Turn into an alien.</text></mode>
-    	<mode>
     		<id>/mode/rainbow</id>
     		<text>Show me a rainbow.</text></mode>
-    	<mode>
-    		<id>/mode/cat</id>
-    		<text>Give me a laser pointer.</text></mode>
-    	<mode>
-    		<id>/mode/disco</id>
-    		<text>Show me a discoball.</text></mode>
-    	<mode>
-    		<id>/mode/scanner</id>
-    		<text>Scan the room.</text></mode>
     	<mode>
     		<id>/mode/firefly</id>
     		<text>I've never seen fireflies.</text></mode>
     </lightMenu>
     <talkMenu>
-        <mode>
-            <id>default</id>
-            <options>
-                <option><text>default text</text></option>
-            </options>
-        </mode>
         <mode>
             <id>/mode/rainbow</id>
             <options>
@@ -51,45 +33,6 @@
                 <option><text>Beam me up.</text></option>
                 <option><text lines="1">What is the closest planet to</text></option>
                 <option><text>our solar system?</text></option>
-            </options>
-        </mode>
-        <mode>
-            <id>/mode/alien</id>
-            <options>
-                <option><text lines="1">What does the crystal ball</text></option>
-                <option><text>say?</text></option>
-                <option><text lines="1">How many stars are in the</text></option>
-                <option><text>Milky Way?</text></option>
-                <option><text lines="1">What does an alien sound</text></option>
-                <option><text>like?</text></option>
-            </options>
-        </mode>
-        <mode>
-            <id>/mode/disco</id>
-            <options>
-                <option><text>What's a disco ball?</text></option>
-                <option><text>Compliment me.</text></option>
-                <option><text lines="1">Where is the nearest dance</text></option>
-                <option><text>club?</text></option>
-                <option><text lines="1">Do you like my dance</text></option>
-                <option><text>moves?</text></option>
-            </options>
-        </mode>
-        <mode>
-            <id>/mode/scanner</id>
-            <options>
-                <option><text>Do you like my pants?</text></option>
-                <option><text>What is my fortune?</text></option>
-                <option><text>Where am I?</text></option>
-                <option><text>What am I Thinking?</text></option>
-            </options>
-        </mode>
-        <mode>
-            <id>/mode/cat</id>
-            <options>
-                <option><text>What is a laser?</text></option>
-                <option><text>Tell me a joke.</text></option>
-                <option><text>What does a cat sound like?</text></option>
             </options>
         </mode>
         <mode>
