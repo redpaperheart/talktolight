@@ -17,14 +17,6 @@ void MenuView::setup(){
 void MenuView::setupLight(){
     viewType = 0; //left screen
     setup();
-    //add header
-//    auto t = addItem("CHANGE THE LIGHT", "", mLineHeight*2);
-//    t->inactiveColor = dimColor;
-//    t->activeColor = whiteColor;
-//    t = addItem("Hey Google...", "", mLineHeight*2);
-//    t->inactiveColor = dimColor;
-//    t->activeColor = whiteColor;
-    
 }
 void MenuView::setupTalk(){
     viewType = 1; //right screen

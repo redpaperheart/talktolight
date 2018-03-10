@@ -4,7 +4,7 @@ void ofApp::setup(){
     loadSettings();
     Tweenzor::init();
     setupOsc();
-    setupAMPM();
+//    setupAMPM();
     
     if(!musicControl){
         setupViews();
@@ -65,6 +65,7 @@ void ofApp::loadSettings(){
         settings.setValue("settings:playDuration", 3000);
         settings.setValue("settings:musicControl", false);
         settings.setValue("settings:debug", false);
+        settings.setValue("settings:launchFullscreen", true);
         settings.setValue("settings:font", "NotoSans-Regular.ttf");
         settings.saveFile("settings.xml");
     }
@@ -82,13 +83,13 @@ void ofApp::loadSettings(){
         
     }
 }
-void ofApp::setupSFX(){
-    sfx1.load(assetPath + "cartoon024.mp3");
-}
-void ofApp::playSFX(ofSoundPlayer sfx){
-//    setVolume(maxVolume);
-//    sfx.play();
-}
+//void ofApp::setupSFX(){
+//    sfx1.load(assetPath + "cartoon024.mp3");
+//}
+//void ofApp::playSFX(ofSoundPlayer sfx){
+////    setVolume(maxVolume);
+////    sfx.play();
+//}
 void ofApp::setupViews(){
     ofTrueTypeFont::setGlobalDpi(96);
     
@@ -153,12 +154,6 @@ void ofApp::setupViews(){
 void ofApp::setMode(string oscId){
     currentMode = oscId;
     if(musicControl){
-//        if(currentMode==OSC_MODE_DISCO){
-//            musicPlay();
-//        }else{
-//            musicStop();
-////            playSFX(sfx1);
-//        }
     }else{
         lightMenu->activateMode(oscId);
         talkMenu->activateMode(oscId);
@@ -205,9 +200,17 @@ void ofApp::toggleScale(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    //
+    if(ofGetElapsedTimeMillis()<500){
+        if(settings.getValue("settings:launchFullscreen", true) == 1){
+            //do nothing
+        }else{
+            //pop out of fullscreen
+            ofSetFullscreen(false);
+            cout << "launch in window" << endl;
+        }
+    }
     Tweenzor::update( ofGetElapsedTimeMillis() );
-    mAMPM->update();
+//    mAMPM->update();
     if(currentVolume != targetVolume){
         if(abs(targetVolume-currentVolume) < 0.2f){
             currentVolume = targetVolume;
@@ -350,9 +353,6 @@ void ofApp::musicStop(){
 
 // OSC
 //--------------------------------------------------------------
-void ofApp::setupAMPM(){
-    mAMPM = ofx::AMPMClient::create( 3002, 3003 );
-}
 void ofApp::setupOsc()
 {
     // listen to osc on the given port
