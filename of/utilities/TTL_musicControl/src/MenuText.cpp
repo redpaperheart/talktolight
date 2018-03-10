@@ -15,6 +15,10 @@ void MenuText::update(){
     
 }
 void MenuText::draw(){
+    if(mCurrentColor.a <=.1){
+        //don't draw if the alpha is less than .1
+        return;
+    }
     ofPushMatrix();
     ofTranslate(mPosition);
     ofSetColor(mCurrentColor);

@@ -5,7 +5,7 @@
 #include "ofxXmlSettings.h"
 #include "MenuView.h"
 #include "ofxTweenzor.h"
-#include "ofxAMPMClient.h"
+//#include "ofxAMPMClient.h"
 
 #define W_WIDTH  1920
 #define W_HEIGHT 1080
@@ -33,7 +33,6 @@
 #define OSC_MODE_ALIEN          "/mode/alien"
 #define OSC_MODE_SCANNER        "/mode/scanner"
 #define OSC_MODE_FIREFLY        "/mode/firefly"
-#define OSC_MODE_CAR            "/mode/kitt"
 #define OSC_MODE_GOODNIGHT      "/mode/goodnight"
 
 class ofApp : public ofBaseApp{
@@ -47,8 +46,6 @@ class ofApp : public ofBaseApp{
     ofxXmlSettings menuText;
     
     ofSoundPlayer sfx1;
-    void setupSFX();
-    void playSFX(ofSoundPlayer sfx);
     
     void setupViews();
 
@@ -77,8 +74,8 @@ class ofApp : public ofBaseApp{
     void parseOsc();
     void setMode(string oscId);
     
-    ofx::AMPMClientRef mAMPM;
-    void setupAMPM();
+//    ofx::AMPMClientRef mAMPM;
+//    void setupAMPM();
     
     //OSC handlers
     void musicPlay();
